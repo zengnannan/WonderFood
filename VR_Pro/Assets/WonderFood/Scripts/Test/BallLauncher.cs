@@ -8,12 +8,10 @@ public class BallLauncher : MonoBehaviour
 
     public ObjectPool ballPool;
     public int ballNum;
-    //public List<GameObject> ballList;
     public Transform bornPlace;
 
     public float shootInternal;
     public float lastShootTime;
-
 
     private void Awake()
     {
@@ -44,7 +42,6 @@ public class BallLauncher : MonoBehaviour
     {
         var ball = ballPool.GetObject();
         ball.transform.position = new Vector3(bornPlace.position.x, bornPlace.position.y, bornPlace.position.z);
-        //ballList.Add(ball);
         return ball;
     }
 
