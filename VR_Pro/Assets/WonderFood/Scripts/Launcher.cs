@@ -30,8 +30,11 @@ public class Launcher : MonoBehaviour
 
     private GameObject Shoot()
     {
+        //First Get a Pool according to its chance
         var randomPool = Probability.GetChancePool<Pool>(objectPooler.pools);
+        //Randomly Pick a Prefab in the pool
         var randomAI = objectPooler.GetGameObject(randomPool.tag);
+
         randomAI.transform.position = PositionManager.instance.GetRandomPosition(PositionManager.instance.InitialPointPositions).position;
 
         return randomAI;

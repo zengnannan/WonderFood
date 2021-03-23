@@ -8,6 +8,7 @@ TagManager:
   - NoNeedAI
   - EnemyAI
   - WantedAI
+  - Pan
   layers:
   - Default
   - TransparentFX
