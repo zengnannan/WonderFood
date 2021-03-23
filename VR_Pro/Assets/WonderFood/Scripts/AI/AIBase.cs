@@ -10,8 +10,8 @@ public class AIBase : MonoBehaviour
     private PositionManager positionManager;
 
     [Header("Fly Attributes")]
-    public float h = 25;
-    public float gravity = -18;
+    public float h = 20;
+    public float gravity = -10;
 
     void Awake()
     {
@@ -65,7 +65,18 @@ public class AIBase : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
         {
+            
             Reset();
+        }
+    }
+
+    void OnTriggerEnter(Collider collider)
+    {
+        Vector3 hitVelocity = rb.velocity;
+        if (collider.CompareTag("Pan"))
+        {
+           Debug.Log(rb.velocity);
+            rb.velocity = new Vector3(-20, 0, 0);
         }
     }
 }
