@@ -20,7 +20,7 @@ public class AIBase : MonoBehaviour
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
     }
 
-    void Start()
+    void Start() 
     {
         isLaunch = false;
         rb.useGravity = false;
@@ -68,15 +68,11 @@ public class AIBase : MonoBehaviour
             
             Reset();
         }
-    }
-
-    void OnTriggerEnter(Collider collider)
-    {
-        Vector3 hitVelocity = rb.velocity;
-        if (collider.CompareTag("Pan"))
+        if (collision.gameObject.CompareTag("Pan"))
         {
-           Debug.Log(rb.velocity);
-            rb.velocity = new Vector3(-20, 0, 0);
+            rb.velocity = VelocityComponent.AverageVelocity;
         }
     }
+
+
 }

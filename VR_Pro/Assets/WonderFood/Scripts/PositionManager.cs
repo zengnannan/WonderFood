@@ -15,7 +15,7 @@ public class PositionManager : MonoBehaviour
 
     public Transform GetRandomPosition(Transform[] transforms)
     {
-        var randomTarget = transforms[Random.Range(0, targetPointPositions.Length)];
+        var randomTarget = transforms[Random.Range(0, transforms.Length)];
         return randomTarget;
     }
 }

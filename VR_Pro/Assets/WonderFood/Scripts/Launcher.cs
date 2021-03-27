@@ -12,7 +12,7 @@ public class Launcher : MonoBehaviour
     private ObjectPooler objectPooler;
 
     public float shootInterval;
-    public float lastShootTime;
+    private float lastShootTime;
     private void Awake()
     {
         objectPooler = GetComponent<ObjectPooler>();  
@@ -33,7 +33,7 @@ public class Launcher : MonoBehaviour
         //First Get a Pool according to its chance
         var randomPool = Probability.GetChancePool<Pool>(objectPooler.pools);
         //Randomly Pick a Prefab in the pool
-        var randomAI = objectPooler.GetGameObject(randomPool.tag);
+        var randomAI = objectPooler.GetGameObject(randomPool.name);
 
         randomAI.transform.position = PositionManager.instance.GetRandomPosition(PositionManager.instance.InitialPointPositions).position;
 
