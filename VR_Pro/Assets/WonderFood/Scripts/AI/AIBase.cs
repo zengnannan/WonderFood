@@ -9,11 +9,13 @@ public class AIBase : MonoBehaviour
     private bool isLaunch;
     private PositionManager positionManager;
 
+    public bool isHit; 
+
     [Header("Fly Attributes")]
     public float h = 20;
     public float gravity = -10;
 
-    void Awake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody>();
         positionManager = PositionManager.instance;
@@ -23,6 +25,7 @@ public class AIBase : MonoBehaviour
     void Start() 
     {
         isLaunch = false;
+        isHit = false;
         rb.useGravity = false;
     }
 
@@ -54,25 +57,31 @@ public class AIBase : MonoBehaviour
         return velocityXZ + velocityY;
     }
 
-    void Reset()
+    protected virtual void Reset()
     {
         isLaunch = false;
+        isHit = false;
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
     }
 
-    void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-        {
-            
+        { 
             Reset();
         }
         if (collision.gameObject.CompareTag("Pan"))
         {
-            rb.velocity = VelocityComponent.AverageVelocity;
+            //rb.velocity = VelocityComponent.AverageVelocity;
+            StartCoroutine(HitPan());
         }
     }
 
+   IEnumerator HitPan()
+    {
+        yield return new WaitForSeconds(0.01f);
+        rb.velocity = VelocityComponent.AverageVelocity;
+    }
 
 }

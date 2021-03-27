@@ -38,6 +38,5 @@ public class VelocityComponent : MonoBehaviour
 
         previousPosition = transform.position;
         AverageVelocity = averageVelocity * Multiplier;
-        Debug.Log(averageVelocity);
     }
 }
