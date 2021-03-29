@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5293059418127902722}
   - component: {fileID: 4139357841769367395}
   m_Layer: 0
-  m_Name: NoNeedAI
+  m_Name: Banana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,5 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9184fb7b7e1e654e980fa7dfd6934a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
+  isHit: 0
   h: 1
   gravity: -10

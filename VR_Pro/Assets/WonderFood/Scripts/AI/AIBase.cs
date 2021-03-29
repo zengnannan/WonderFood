@@ -8,6 +8,7 @@ public class AIBase : MonoBehaviour
     private Transform target;
     private bool isLaunch;
     private PositionManager positionManager;
+    public AudioClip hitPanSound;
 
     public bool isHit; 
 
@@ -73,8 +74,10 @@ public class AIBase : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Pan"))
         {
+            Debug.Log("EnterCollision");
             //rb.velocity = VelocityComponent.AverageVelocity;
             StartCoroutine(HitPan());
+            Vibration.singleton.TriggerVibration(hitPanSound,OVRInput.Controller.RTouch);
         }
     }
 
