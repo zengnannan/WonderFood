@@ -12,6 +12,7 @@ public class XRGUI : MonoBehaviour
    public void LoadNewScene()
     {
         SceneManager.LoadScene(1);
+        SoundManager.instance.PlaySound("UIClick");
     }
     
 

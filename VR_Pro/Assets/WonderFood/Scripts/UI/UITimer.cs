@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UITimer : MonoBehaviour
 {
     public static UITimer instance;
-    [SerializeField] private float maxTime;
-    [SerializeField] private float currentTime;
+    public float maxTime;
+    public float currentTime;
     [SerializeField] private Text timeDisplay;
 
     public bool isGameOver;
@@ -17,9 +17,14 @@ public class UITimer : MonoBehaviour
         instance = this;
         this.gameObject.SetActive(true);
         isGameOver = false;
-        currentTime = maxTime;
+
 
         timeDisplay.text = maxTime.ToString();
+    }
+
+    private void Start()
+    {
+        currentTime = maxTime;
     }
 
 
@@ -40,7 +45,7 @@ public class UITimer : MonoBehaviour
         if (currentTime <= 0)
         {
             isGameOver = true;
-            currentTime = maxTime;
+            currentTime = 0;
         }
     }
 

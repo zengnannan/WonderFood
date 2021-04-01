@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2042100467204546793}
   - component: {fileID: 8743356430722584190}
   - component: {fileID: 6798717744180372302}
-  - component: {fileID: 3079397521943213996}
   - component: {fileID: 5908200992649783946}
   - component: {fileID: 4139357841769367395}
+  - component: {fileID: 5403954450227271656}
   m_Layer: 0
   m_Name: AvocadoEnemy
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1781696469887989738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.334717, y: 8.433141, z: -1.1831584}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781696469887989738}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -6369980736771897515, guid: b9f28243f99efd143934a09ef1e792f2, type: 3}
 --- !u!23 &6798717744180372302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 025dfb6e6d7969b4bb3676d76d807aec, type: 2}
+  - {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3079397521943213996
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1781696469887989738}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5908200992649783946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,7 +110,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9184fb7b7e1e654e980fa7dfd6934a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPanSound: {fileID: 8300000, guid: 52ab7db1d49bdd3439068cb794b500a9, type: 3}
   isHit: 0
+  isGrounded: 0
   h: 1
   gravity: -10
+--- !u!136 &5403954450227271656
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781696469887989738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.04157257
+  m_Height: 0.128788
+  m_Direction: 1
+  m_Center: {x: 0.0016593933, y: -0.007543564, z: -0.0038904995}

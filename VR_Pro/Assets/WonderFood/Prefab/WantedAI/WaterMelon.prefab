@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2870810958899309502, guid: 4c8ec6703047dcb418ebe85c5771b2e8, type: 3}
+  - {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -125,5 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
   isHit: 0
+  isGrounded: 0
   h: 1
   gravity: -10

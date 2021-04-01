@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 9125608623203721504}
   - component: {fileID: 1482024754160601102}
   - component: {fileID: 4003383517493265001}
-  - component: {fileID: 3079397521943213996}
   - component: {fileID: 5293059418127902722}
   - component: {fileID: 4139357841769367395}
+  - component: {fileID: 2815317842642969243}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2870810958899309502, guid: 5e4dd18768bf84f47b1c42364ccd058e, type: 3}
+  - {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &3079397521943213996
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3073973976585628263}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5293059418127902722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,7 +110,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9184fb7b7e1e654e980fa7dfd6934a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
   isHit: 0
+  isGrounded: 0
   h: 1
   gravity: -10
+--- !u!136 &2815317842642969243
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3073973976585628263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.485426
+  m_Height: 9.619474
+  m_Direction: 1
+  m_Center: {x: -0.031577423, y: -1.4017344, z: 0}

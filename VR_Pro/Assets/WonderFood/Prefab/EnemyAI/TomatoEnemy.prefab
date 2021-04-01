@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1781696469887989738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 55.334717, y: 8.433141, z: -1.1831584}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8, y: 1.8, z: 1.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2870810958899309502, guid: 7d49a16642ca471438b636750b289a87, type: 3}
+  - {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPanSound: {fileID: 8300000, guid: 52ab7db1d49bdd3439068cb794b500a9, type: 3}
   isHit: 0
+  isGrounded: 0
   h: 1
   gravity: -10
 --- !u!135 &6385589268175598867

@@ -15,6 +15,9 @@ public class Pool
 
     [Header("Probability")]
     public int chance;
+    public int chance1;
+    public int chance2;
+    public int chance3;
     [HideInInspector] public int minChance;
     [HideInInspector] public int maxChance;
 

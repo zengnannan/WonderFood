@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2870810958899309502, guid: 9f2315a05f4bf3246a46737189059007, type: 3}
+  - {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -109,8 +109,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4.819619
-  m_Center: {x: 0, y: 4.220071, z: -0.00083222985}
+  m_Radius: 6.5882683
+  m_Center: {x: -0.24058074, y: 4.220071, z: 0.08356124}
 --- !u!114 &4474330622205258789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,5 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
   isHit: 0
+  isGrounded: 0
   h: 1
   gravity: -10

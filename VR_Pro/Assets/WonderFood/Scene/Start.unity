@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1358,6 +1358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalScore: 0
+  scoreText: {fileID: 0}
 --- !u!4 &619555874
 Transform:
   m_ObjectHideFlags: 0
@@ -3444,6 +3445,9 @@ MonoBehaviour:
       type: 3}
     size: 5
     chance: 20
+    chance1: 0
+    chance2: 0
+    chance3: 0
     minChance: 0
     maxChance: 0
     minScore: 30
@@ -3454,6 +3458,9 @@ MonoBehaviour:
       type: 3}
     size: 5
     chance: 60
+    chance1: 0
+    chance2: 0
+    chance3: 0
     minChance: 0
     maxChance: 0
     minScore: 25
@@ -3464,6 +3471,9 @@ MonoBehaviour:
       type: 3}
     size: 5
     chance: 10
+    chance1: 0
+    chance2: 0
+    chance3: 0
     minChance: 0
     maxChance: 0
     minScore: 0
@@ -3474,6 +3484,9 @@ MonoBehaviour:
       type: 3}
     size: 5
     chance: 30
+    chance1: 0
+    chance2: 0
+    chance3: 0
     minChance: 0
     maxChance: 0
     minScore: 50
@@ -3491,6 +3504,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootInterval: 0.5
+  shootInterval1: 0
+  shootInterval2: 0
+  shootInterval3: 0
 --- !u!1 &1774134347
 GameObject:
   m_ObjectHideFlags: 0

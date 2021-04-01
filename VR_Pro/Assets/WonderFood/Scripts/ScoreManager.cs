@@ -20,6 +20,10 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
+        if (totalScore < 0)
+        {
+            totalScore = 0;
+        }
         scoreText.text=totalScore.ToString();
     }
     public void AddScore(int score)

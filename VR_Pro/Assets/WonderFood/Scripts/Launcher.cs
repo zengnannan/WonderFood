@@ -12,6 +12,11 @@ public class Launcher : MonoBehaviour
     private ObjectPooler objectPooler;
 
     public float shootInterval;
+
+    public float shootInterval1;
+    public float shootInterval2;
+    public float shootInterval3;
+
     private float lastShootTime;
     private void Awake()
     {

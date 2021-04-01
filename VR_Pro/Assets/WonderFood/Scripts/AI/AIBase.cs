@@ -8,9 +8,9 @@ public class AIBase : MonoBehaviour
     private Transform target;
     private bool isLaunch;
     private PositionManager positionManager;
-    public AudioClip hitPanSound;
 
-    public bool isHit; 
+    public bool isHit;
+    public bool isGrounded;
 
     [Header("Fly Attributes")]
     public float h = 20;
@@ -27,6 +27,7 @@ public class AIBase : MonoBehaviour
     {
         isLaunch = false;
         isHit = false;
+        isGrounded = false;
         rb.useGravity = false;
     }
 
@@ -62,6 +63,7 @@ public class AIBase : MonoBehaviour
     {
         isLaunch = false;
         isHit = false;
+        isGrounded = false;
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
     }
@@ -69,19 +71,24 @@ public class AIBase : MonoBehaviour
     protected virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ground")
-        { 
-            Reset();
+        {
+            isGrounded = true;
+            StartCoroutine(ResetTheGameobject());
         }
         if (collision.gameObject.CompareTag("Pan"))
         {
-            Debug.Log("EnterCollision");
-            //rb.velocity = VelocityComponent.AverageVelocity;
+            SoundManager.instance.PlaySound("HitFruit");
             StartCoroutine(HitPan());
-            Vibration.singleton.TriggerVibration(hitPanSound,OVRInput.Controller.RTouch);
         }
     }
 
-   IEnumerator HitPan()
+    protected IEnumerator ResetTheGameobject()
+    {
+        yield return new WaitForSeconds(2f);
+        Reset();
+    }
+
+    protected IEnumerator HitPan()
     {
         yield return new WaitForSeconds(0.01f);
         rb.velocity = VelocityComponent.AverageVelocity;
