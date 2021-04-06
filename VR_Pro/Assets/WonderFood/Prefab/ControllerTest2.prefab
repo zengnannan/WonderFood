@@ -152,6 +152,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wnagzi02
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5f90d2fc66be42f4d8987342a912f82e,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wang
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5f90d2fc66be42f4d8987342a912f82e, type: 3}
 --- !u!1 &991508933059704383 stripped

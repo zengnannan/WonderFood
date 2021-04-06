@@ -1,38 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using  UnityEngine.UI;
+using UnityEngine.UI;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public int totalScore;
-    private ObjectPooler objectPooler;
+    public int currentScore;
+    public int lastScore;
     public Text scoreText;
 
 
     void Awake()
     {
         instance = this;
-        totalScore = 0;
-        objectPooler = FindObjectOfType<ObjectPooler>();
+        currentScore = 0;
+        lastScore = 0;
     }
 
     void Update()
     {
-        if (totalScore < 0)
+        if (currentScore < 0)
         {
-            totalScore = 0;
+            currentScore = 0;
         }
-        scoreText.text=totalScore.ToString();
+        scoreText.text=currentScore.ToString();
     }
-    public void AddScore(int score)
+    public void AddScore(object _sender, EventArgs _e)
     {
-        totalScore += score;
+       GameObject ai = _sender as GameObject;
+       AIEventArgs e = _e as AIEventArgs;
+       lastScore = currentScore;
+        currentScore +=(int) UnityEngine.Random.Range(e.pool.minScore * ComboSystem.instance.comboRatio, (e.pool.maxScore + 1) * ComboSystem.instance.comboRatio);
+
     }
-    public void ReduceScore(int score)
-    {
-        totalScore -= score;
-    }
+
 
 }

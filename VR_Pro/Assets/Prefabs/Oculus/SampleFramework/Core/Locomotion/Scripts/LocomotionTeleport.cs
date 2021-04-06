@@ -136,7 +136,7 @@ public class LocomotionTeleport : MonoBehaviour
 	/// <summary>
 	/// Aiming is handled by one specific aim handler at a time. When the aim handler component is enabled, it 
 	/// will set this reference to the AimHandler so that other parts of the system which need access to the 
-	/// current aim handler can be sure to use the correct component. 
+	/// current aim handler can be sure to use the correctSFX component. 
 	/// </summary>
 	[NonSerialized]
 	public TeleportAimHandler AimHandler;

@@ -9,6 +9,7 @@ TagManager:
   - EnemyAI
   - WantedAI
   - Pan
+  - Wang
   layers:
   - Default
   - TransparentFX

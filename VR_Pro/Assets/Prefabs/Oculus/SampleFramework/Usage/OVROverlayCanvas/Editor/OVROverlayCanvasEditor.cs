@@ -96,7 +96,7 @@ public class OVROverlayCanvasEditor : Editor {
 			{
 				var prevColor = GUI.contentColor;
 				GUI.contentColor = Color.yellow;
-				EditorGUILayout.LabelField("Alpha blending may not be correct with Gamma Color Space");
+				EditorGUILayout.LabelField("Alpha blending may not be correctSFX with Gamma Color Space");
 				GUI.contentColor = prevColor;
 			}
 		}

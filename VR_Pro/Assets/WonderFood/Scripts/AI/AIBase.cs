@@ -1,20 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class AIBase : MonoBehaviour
 {
-    private Rigidbody rb;
-    private Transform target;
-    private bool isLaunch;
-    private PositionManager positionManager;
+    protected Rigidbody rb;
+    protected Transform target;
+    protected bool isLaunch;
+    protected PositionManager positionManager;
 
     public bool isHit;
     public bool isGrounded;
 
+    protected AIEventArgs aiEventArgs;
+
     [Header("Fly Attributes")]
     public float h = 20;
     public float gravity = -10;
+
+    protected event EventHandler OnStateTrue;
+    protected event EventHandler OnStateFalse;
 
     protected virtual void Awake()
     {
@@ -23,31 +29,43 @@ public class AIBase : MonoBehaviour
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
     }
 
-    void Start() 
+    protected virtual void Start()
     {
         isLaunch = false;
         isHit = false;
         isGrounded = false;
         rb.useGravity = false;
+
+        aiEventArgs = new AIEventArgs();
+        aiEventArgs.poolName = this.transform.parent.name;
+        aiEventArgs.pool = ObjectPooler.instance.nameToPool[aiEventArgs.poolName];
     }
 
     void Update()
     {
         if (isLaunch == false)
-        {            
+        {
             AutoLaunch();
         }
     }
 
-    void AutoLaunch()
+    protected virtual void AutoLaunch()
     {
         rb.useGravity = true;
         Physics.gravity = Vector3.up * gravity;
         rb.velocity = CalculateLaunchVelocity();
         isLaunch = true;
+        //玩家对EnemyAI【正确】反映的订阅:加分数、加Combo数、正确音效
+        OnStateTrue += ScoreManager.instance.AddScore;
+        OnStateTrue += ComboSystem.instance.AddComboNum;
+        OnStateTrue += SoundManager.instance.PlayCorrectSFX;
+
+        //玩家对AI【错误】反映的订阅：重置Combo数、错误音效
+        OnStateFalse += ComboSystem.instance.ResetComboNum;
+        OnStateFalse += SoundManager.instance.PlayWrongSFX;
     }
 
-    Vector3 CalculateLaunchVelocity()
+    protected Vector3 CalculateLaunchVelocity()
     {
 
         float displaymentY = target.position.y - transform.position.y;
@@ -66,6 +84,15 @@ public class AIBase : MonoBehaviour
         isGrounded = false;
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
+
+        //玩家对EnemyAI【正确】反映的取消订阅:加分数、加Combo数、正确音效
+        OnStateTrue -= ScoreManager.instance.AddScore;
+        OnStateTrue -= ComboSystem.instance.AddComboNum;
+        OnStateTrue -= SoundManager.instance.PlayCorrectSFX;
+
+        //玩家对EnemyAI【错误】反映的取消订阅：重置Combo数、喷脸特效、错误音效
+        OnStateFalse -= ComboSystem.instance.ResetComboNum;
+        OnStateFalse -= SoundManager.instance.PlayWrongSFX;
     }
 
     protected virtual void OnCollisionEnter(Collision collision)
@@ -75,10 +102,10 @@ public class AIBase : MonoBehaviour
             isGrounded = true;
             StartCoroutine(ResetTheGameobject());
         }
-        if (collision.gameObject.CompareTag("Pan"))
+
+        if (collision.gameObject.tag == "Pan")
         {
-            SoundManager.instance.PlaySound("HitFruit");
-            StartCoroutine(HitPan());
+           HitPan();
         }
     }
 
@@ -88,10 +115,34 @@ public class AIBase : MonoBehaviour
         Reset();
     }
 
-    protected IEnumerator HitPan()
+    protected void HitPan()
     {
-        yield return new WaitForSeconds(0.01f);
+        //yield return new WaitForSeconds(0.01f);
         rb.velocity = VelocityComponent.AverageVelocity;
     }
 
+    protected void StateTrue(AIEventArgs e)
+    {
+        if (this.OnStateTrue != null)
+        {
+            OnStateTrue(this, e);
+        }
+    }
+
+    protected void StateFalse(AIEventArgs e)
+    {
+        if (this.OnStateFalse != null)
+        {
+            OnStateFalse(this, e);
+        }
+    }
+}
+
+
+public class AIEventArgs : EventArgs
+{
+    public Pool pool;
+    public string poolName;
+    public string correctSFX;
+    public string wrongSFX;
 }

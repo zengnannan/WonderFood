@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SoundManager : MonoBehaviour {
 
@@ -66,6 +67,22 @@ public class SoundManager : MonoBehaviour {
         {
             PlaySound(clip, loop);
         }
+    }
+
+    public void PlayCorrectSFX(object _sender, EventArgs _e)
+    {
+        GameObject ai = _sender as GameObject;
+        AIEventArgs e = _e as AIEventArgs;
+
+        PlaySound(e.correctSFX);
+    }
+
+    public void PlayWrongSFX(object _sender, EventArgs _e)
+    {
+        GameObject ai = _sender as GameObject;
+        AIEventArgs e = _e as AIEventArgs;
+
+        PlaySound(e.wrongSFX);
     }
 
     public void PlayLoopedSound(string soundName, bool loop = false, float time = 0f)

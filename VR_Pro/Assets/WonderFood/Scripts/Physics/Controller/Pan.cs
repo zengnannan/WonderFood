@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Pan : ControllerBase
 {
-   void OnTriggerEnter(Collider collider)
-   {
-        var objType = GetAIType(collider.gameObject);
-        var objScore = GetAIScore(collider.gameObject);
+   //void OnTriggerEnter(Collider collider)
+  // {
+     //   var objType = GetAIType(collider.gameObject);
+    //    var objScore = GetAIScore(collider.gameObject);
 
-        if (objType == AIType.EnemyAI)
-        {
-            if (collider.GetComponent<EnemyAI>().isHit == false && collider.GetComponent<EnemyAI>().isGrounded == false)
-            {
-               collider.GetComponent<EnemyAI>().isHit = true;
-               ScoreManager.instance.AddScore(objScore);
-            }
+     //   if (objType == AIType.EnemyAI)
+     //   {
+     //       if (collider.GetComponent<EnemyAI>().isHit == false && collider.GetComponent<EnemyAI>().isGrounded == false)
+     //       {
+      //         collider.GetComponent<EnemyAI>().isHit = true;
+      //         ScoreManager.instance.AddScore(objScore);
+       //     }
            
-        }
-   }
+      //  }
+   //}
 }

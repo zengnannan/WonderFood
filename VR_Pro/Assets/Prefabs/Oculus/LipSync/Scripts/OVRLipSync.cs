@@ -236,7 +236,7 @@ public class OVRLipSync : MonoBehaviour
         if (sInstance != this)
         {
             Debug.LogWarning(
-            "OVRLipSync OnDestroy: This is not the correct OVRLipSync instance.");
+            "OVRLipSync OnDestroy: This is not the correctSFX OVRLipSync instance.");
             return;
         }
 

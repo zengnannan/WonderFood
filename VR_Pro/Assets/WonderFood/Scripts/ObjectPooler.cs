@@ -22,8 +22,8 @@ public class Pool
     [HideInInspector] public int maxChance;
 
     [Header("Score")]
-    public int minScore;
-    public int maxScore;
+    public float minScore;
+    public float maxScore;
 
    
 }
@@ -43,6 +43,7 @@ public class ObjectPooler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         nameToQueue = new Dictionary<string, Queue<GameObject>>();
         nameToPool = new Dictionary<string, Pool>();
 

@@ -61,13 +61,13 @@ public class UIManager : MonoBehaviour
             {
                 Debug.Log("sucess");
                 successPanel.SetActive(true);
-                successScore.text = ScoreManager.instance.totalScore.ToString();
+                successScore.text = ScoreManager.instance.currentScore.ToString();
             }
             else
             {
                 Debug.Log("fail");
                 failPanel.SetActive(true);
-                failScore.text = ScoreManager.instance.totalScore.ToString();
+                failScore.text = ScoreManager.instance.currentScore.ToString();
             }
 
             Time.timeScale = 0;

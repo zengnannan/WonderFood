@@ -78,7 +78,7 @@ public class ONSPAmbisonicsNative : MonoBehaviour
 			{
 				if(source.clip.channels != numFOAChannels)
 				{
-					Debug.Log("Ambisonic ERROR: AudioSource clip does not have correct number of channels.");
+					Debug.Log("Ambisonic ERROR: AudioSource clip does not have correctSFX number of channels.");
 				}
 			}
 		}

@@ -5,33 +5,59 @@ using System;
 
 public class EnemyAI : AIBase
 {
-    private event Action stateTime;
-
+    public event EventHandler OnEnemyStateTrue;
+    public event EventHandler OnEnemyStateFalse;
     
 
-    protected override void OnCollisionEnter(Collision collision)
+
+    protected override void Start()
     {
+        base.Start();
+        aiEventArgs.correctSFX = "HitEnemy";
+        aiEventArgs.wrongSFX = "MissHit";
+    }
+
+    protected override void AutoLaunch()
+    {
+        base.AutoLaunch();
+        OnStateFalse += SpitAtPlayer;
+    }
+
+    protected override void Reset()
+    {
+        base.Reset();
+        
+        OnStateFalse -= SpitAtPlayer;
+    }
+
+    protected void OnTriggerEnter(Collider collision)
+    {
+       
+        //玩家对EnemyAI【错误】情况：掉到地上时，没有被击中过，也没有被掉到地上过
         if (collision.gameObject.CompareTag("Ground") && isHit != true && isGrounded != true)
         {
             isGrounded = true;
-            var pool = FindObjectOfType<ObjectPooler>().nameToPool[transform.parent.name];
-            ScoreManager.instance.ReduceScore(UnityEngine.Random.Range(pool.minScore,pool.maxScore+1));
+            base.StateFalse(aiEventArgs);
         }
-        if (collision.gameObject.tag == "Ground")
+
+        if (collision.gameObject.CompareTag("Wang") && isHit != true && isGrounded != true)
         {
-            isGrounded = true;
-            StartCoroutine(ResetTheGameobject());
+            isHit = true;
+            base.StateFalse(aiEventArgs);
         }
+
+        //玩家对EnemyAI【正确】情况：击中Pan
         if (collision.gameObject.CompareTag("Pan"))
         {
-            SoundManager.instance.PlaySound("HitEnemy");
-            StartCoroutine(HitPan());
-
-
+            isHit = true;
+            StateTrue(aiEventArgs);
         }
-
     }
-
+    protected void SpitAtPlayer(object _sender, EventArgs _e)
+    {
+        GameObject ai = _sender as GameObject;
+        AIEventArgs e = _e as AIEventArgs;
+    }
 }
 
 
