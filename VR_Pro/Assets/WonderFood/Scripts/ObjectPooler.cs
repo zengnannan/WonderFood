@@ -35,6 +35,7 @@ public class Pool
     }
 public class ObjectPooler : MonoBehaviour
 {
+    public static ObjectPooler instance;
     public List<Pool> pools;
     public Dictionary<string, Queue<GameObject>> nameToQueue;
     public Dictionary<string, Pool> nameToPool;

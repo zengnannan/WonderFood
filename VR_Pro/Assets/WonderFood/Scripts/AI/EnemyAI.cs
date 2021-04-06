@@ -1,9 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyAI : AIBase
 {
+    private event Action stateTime;
+
+    
 
     protected override void OnCollisionEnter(Collision collision)
     {
@@ -11,7 +15,7 @@ public class EnemyAI : AIBase
         {
             isGrounded = true;
             var pool = FindObjectOfType<ObjectPooler>().nameToPool[transform.parent.name];
-            ScoreManager.instance.ReduceScore(Random.Range(pool.minScore,pool.maxScore+1));
+            ScoreManager.instance.ReduceScore(UnityEngine.Random.Range(pool.minScore,pool.maxScore+1));
         }
         if (collision.gameObject.tag == "Ground")
         {
@@ -29,3 +33,5 @@ public class EnemyAI : AIBase
     }
 
 }
+
+
