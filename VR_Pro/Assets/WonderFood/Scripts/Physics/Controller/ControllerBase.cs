@@ -22,7 +22,7 @@ public class ControllerBase : MonoBehaviour
         return pool.aIType;
     }
 
-    protected int GetAIScore(GameObject obj)
+    protected float GetAIScore(GameObject obj)
     {
         var poolName = obj.transform.parent.name;
         var pool = objectPooler.nameToPool[poolName];
