@@ -5,12 +5,19 @@ using System;
 
 public class EnemyAI : AIBase
 {
-
+    public GameObject Player;
     protected override void Start()
     {
         base.Start();
         aiEventArgs.correctSFX = "HitEnemy";
         aiEventArgs.wrongSFX = "MissHit";
+        Player = GameObject.Find("XR Rig");
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+        transform.forward = Player.transform.position - transform.position;
     }
 
     protected override void AutoLaunch()

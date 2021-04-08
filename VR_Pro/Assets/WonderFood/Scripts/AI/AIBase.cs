@@ -47,7 +47,7 @@ public class AIBase : MonoBehaviour
         aiEventArgs.pool = ObjectPooler.instance.nameToPool[aiEventArgs.poolName];
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (isLaunch == false)
         {
@@ -130,7 +130,7 @@ public class AIBase : MonoBehaviour
     {
         if (this.OnStateTrue != null)
         {
-            OnStateTrue(this, e);
+            OnStateTrue(this.gameObject, e);
         }
     }
 
@@ -138,7 +138,7 @@ public class AIBase : MonoBehaviour
     {
         if (this.OnStateFalse != null)
         {
-            OnStateFalse(this, e);
+            OnStateFalse(this.gameObject, e);
         }
     }
 }
