@@ -19,6 +19,11 @@ public class AIBase : MonoBehaviour
     public float h = 20;
     public float gravity = -10;
 
+    /// <summary>
+    /// 2021/4/6 Every AI has 2 events, OnStateTrue and OnStateFalse.
+    /// If player does the 【RIGHT】 operation to this AI, 【OnStateTrue】 will be called.
+    /// If player does the 【Wrong】 operation to this AI, 【OnStateFalse】 will be called.
+    /// </summary>
     protected event EventHandler OnStateTrue;
     protected event EventHandler OnStateFalse;
 
@@ -35,7 +40,8 @@ public class AIBase : MonoBehaviour
         isHit = false;
         isGrounded = false;
         rb.useGravity = false;
-
+        
+        //The basic data of every AI
         aiEventArgs = new AIEventArgs();
         aiEventArgs.poolName = this.transform.parent.name;
         aiEventArgs.pool = ObjectPooler.instance.nameToPool[aiEventArgs.poolName];
@@ -55,12 +61,12 @@ public class AIBase : MonoBehaviour
         Physics.gravity = Vector3.up * gravity;
         rb.velocity = CalculateLaunchVelocity();
         isLaunch = true;
-        //玩家对EnemyAI【正确】反映的订阅:加分数、加Combo数、正确音效
+        //Subscribe【Right】event: AddScore、AddComboNum、PlayCorrectSFX
         OnStateTrue += ScoreManager.instance.AddScore;
         OnStateTrue += ComboSystem.instance.AddComboNum;
         OnStateTrue += SoundManager.instance.PlayCorrectSFX;
 
-        //玩家对AI【错误】反映的订阅：重置Combo数、错误音效
+        //Subscribe 【Wrong】event: ResetComboNum、PlayWrongSFX
         OnStateFalse += ComboSystem.instance.ResetComboNum;
         OnStateFalse += SoundManager.instance.PlayWrongSFX;
     }
@@ -85,12 +91,12 @@ public class AIBase : MonoBehaviour
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
         target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
 
-        //玩家对EnemyAI【正确】反映的取消订阅:加分数、加Combo数、正确音效
+        // Unsubscribe【Right】event: AddScore、AddComboNum、PlayCorrectSFX
         OnStateTrue -= ScoreManager.instance.AddScore;
         OnStateTrue -= ComboSystem.instance.AddComboNum;
         OnStateTrue -= SoundManager.instance.PlayCorrectSFX;
 
-        //玩家对EnemyAI【错误】反映的取消订阅：重置Combo数、喷脸特效、错误音效
+        //Unsubscribe【Wrong】event: AddScore、AddComboNum、PlayCorrectSFX
         OnStateFalse -= ComboSystem.instance.ResetComboNum;
         OnStateFalse -= SoundManager.instance.PlayWrongSFX;
     }
@@ -117,7 +123,6 @@ public class AIBase : MonoBehaviour
 
     protected void HitPan()
     {
-        //yield return new WaitForSeconds(0.01f);
         rb.velocity = VelocityComponent.AverageVelocity;
     }
 
@@ -138,7 +143,7 @@ public class AIBase : MonoBehaviour
     }
 }
 
-
+//The data we need to pass into methods
 public class AIEventArgs : EventArgs
 {
     public Pool pool;

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -943,6 +943,7 @@ GameObject:
   - component: {fileID: 91377616}
   - component: {fileID: 91377615}
   - component: {fileID: 91377614}
+  - component: {fileID: 91377618}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1367,6 +1368,19 @@ MonoBehaviour:
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &91377618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91377612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5971b4bacdcb9a4469025a6ac2686f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 91377617}
 --- !u!1001 &96064716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6496,7 +6510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c27c0c66ce1d6c4d8c0b48d37f0906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalScore: 0
+  currentScore: 0
+  lastScore: 0
   scoreText: {fileID: 600190038}
 --- !u!4 &619555874
 Transform:

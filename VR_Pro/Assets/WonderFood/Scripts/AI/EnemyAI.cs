@@ -5,10 +5,6 @@ using System;
 
 public class EnemyAI : AIBase
 {
-    public event EventHandler OnEnemyStateTrue;
-    public event EventHandler OnEnemyStateFalse;
-    
-
 
     protected override void Start()
     {
@@ -20,13 +16,14 @@ public class EnemyAI : AIBase
     protected override void AutoLaunch()
     {
         base.AutoLaunch();
+        OnStateTrue += HapticComponent.instance.ActivateRightHaptic;
         OnStateFalse += SpitAtPlayer;
     }
 
     protected override void Reset()
     {
         base.Reset();
-        
+        OnStateTrue -= HapticComponent.instance.ActivateRightHaptic;
         OnStateFalse -= SpitAtPlayer;
     }
 
@@ -47,7 +44,7 @@ public class EnemyAI : AIBase
         }
 
         //玩家对EnemyAI【正确】情况：击中Pan
-        if (collision.gameObject.CompareTag("Pan"))
+        if (collision.gameObject.CompareTag("Pan") && isHit != true && isGrounded != true)
         {
             isHit = true;
             StateTrue(aiEventArgs);

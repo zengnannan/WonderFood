@@ -15,12 +15,14 @@ public class WantedAI : AIBase
     {
         base.AutoLaunch();
         OnStateTrue += UIObjectNum.instance.AddObjectiveNum;
+        OnStateTrue += HapticComponent.instance.ActivateLeftHaptic;
     }
 
     protected override void Reset()
     {
         base.Reset();
         OnStateTrue -= UIObjectNum.instance.AddObjectiveNum;
+        OnStateTrue -= HapticComponent.instance.ActivateLeftHaptic;
     }
 
     protected void OnTriggerEnter(Collider collision)
