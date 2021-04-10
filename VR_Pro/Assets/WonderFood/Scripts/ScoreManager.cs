@@ -10,6 +10,10 @@ public class ScoreManager : MonoBehaviour
     public int currentScore;
     public int lastScore;
     public Text scoreText;
+    public int floatingScore;
+    public GameObject FloatingTextPrefab;
+    public GameObject target;
+    public float offset;
 
 
     void Awake()
@@ -32,9 +36,19 @@ public class ScoreManager : MonoBehaviour
        GameObject ai = _sender as GameObject;
        AIEventArgs e = _e as AIEventArgs;
        lastScore = currentScore;
-        currentScore +=(int) UnityEngine.Random.Range(e.pool.minScore * ComboSystem.instance.comboRatio, (e.pool.maxScore + 1) * ComboSystem.instance.comboRatio);
-
+       floatingScore = (int) UnityEngine.Random.Range(e.pool.minScore * ComboSystem.instance.comboRatio,
+           (e.pool.maxScore + 1) * ComboSystem.instance.comboRatio);
+       currentScore += floatingScore;
+        ShowFloatingText(ai);
     }
 
+    void ShowFloatingText(GameObject _sender)
+    {
+        var floatingText = Instantiate(FloatingTextPrefab);
+        floatingText.transform.position = _sender.transform.position+ new  Vector3(0,offset,0);
+        floatingText.GetComponent<TextMesh>().text = floatingScore.ToString();
+        //Instantiate(FloatingTextPrefab, _sender.transform.position,transform.rotation);
+         floatingText.gameObject.transform.forward=floatingText.transform.position-target.transform.position;
+    }
 
 }
