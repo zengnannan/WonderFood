@@ -7381,8 +7381,11 @@ MonoBehaviour:
   currentScore: 0
   lastScore: 0
   scoreText: {fileID: 600190038}
+  floatingScore: 0
   FloatingTextPrefab: {fileID: 1680103509565787609, guid: f2a9c50d53b9ce141857f179c4f2fc91,
     type: 3}
+  target: {fileID: 854278523}
+  offset: 0.5
 --- !u!4 &619555874
 Transform:
   m_ObjectHideFlags: 0
