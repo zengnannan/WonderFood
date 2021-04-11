@@ -319,6 +319,7 @@ GameObject:
   - component: {fileID: 109434732395451517}
   - component: {fileID: 109434732388006827}
   - component: {fileID: -2776635895611795351}
+  - component: {fileID: 844959001477475388}
   m_Layer: 0
   m_Name: Left Hand Model
   m_TagString: Untagged
@@ -368,7 +369,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109434732395284509}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36806187c2b9e7e42b70170f1f85f8dc, type: 3}
   m_Name: 
@@ -376,8 +377,24 @@ MonoBehaviour:
   actionAsset: {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f,
     type: 3}
   controllerName: XRI LeftHand
-  actionNameTrigger: Activate
   actionNameGrip: Select
+  actionNameTrigger: Activate
+--- !u!114 &844959001477475388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 109434732395284509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6651130cefbb58341ac693fa2553c5a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerActionGrip: {fileID: -6131295136447488360, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
+  controllerActionTrigger: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f,
+    type: 3}
 --- !u!1 &109434732395284511
 GameObject:
   m_ObjectHideFlags: 0

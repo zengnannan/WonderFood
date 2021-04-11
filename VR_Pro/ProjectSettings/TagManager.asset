@@ -10,6 +10,7 @@ TagManager:
   - WantedAI
   - Pan
   - Wang
+  - RightHand
   layers:
   - Default
   - TransparentFX

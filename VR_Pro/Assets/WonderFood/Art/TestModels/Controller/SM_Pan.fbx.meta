@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5f90d2fc66be42f4d8987342a912f82e
+guid: a6aee5195a32e7046b439719b05a761c
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Default_Material
-    second: {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
+      name: MI_Pan
+    second: {fileID: 2100000, guid: e002c9699ce69a046b05a1de27a65088, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
