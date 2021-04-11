@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
         completeNum = 0;
         successPanel.SetActive(false);
         failPanel.SetActive(false);
-        Time.timeScale = 1;
         xrRays = FindObjectsOfType<XRRayInteractor>();
         foreach (var xrRayInteractor in xrRays)
         {

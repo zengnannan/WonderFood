@@ -27,8 +27,6 @@ public class UITimer : MonoBehaviour
         currentTime = maxTime;
     }
 
-
-
     private void Update()
     {
         if (!isGameOver)
