@@ -16,11 +16,14 @@ public class UIManager : MonoBehaviour
     public Text successScore;
     public Text failScore;
 
+    private TutorialBoard endBoard;
+
     private bool doOnce;
 
     // Start is called before the first frame update
     protected virtual void Start()
     {
+        endBoard = FindObjectOfType<TutorialBoard>();
         uiobjectnum = FindObjectOfType<UIObjectNum>();
         completeNum = 0;
         successPanel.SetActive(false);
@@ -37,32 +40,30 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (UITimer.instance.currentTime <= 0f && doOnce == false)
+        //Go into GameOver
+        if (UITimer.instance.isGameOver && doOnce == false)
         {
             doOnce = true;
+            //BoardGoingDown
+            endBoard.GoingDown();
+            
+            //see how many object players finished
             for (int i = 0; i < uiobjectnum.ObjectName.Length; i++)
             {
                 Debug.Log("Enter fun1");
-                if (uiobjectnum.currentObjectNum[i] >= uiobjectnum.requireObjectNum[i])
+                if (uiobjectnum.currentObjectNum[i] <= 0)
                 {
                     Debug.Log("Enter fuc2");
                     completeNum++;
                 }
             }
 
-            foreach (var xrRayInteractor in xrRays)
-            {
-                xrRayInteractor.enabled = true;
-            }
-
-
+            //Success
             if (completeNum == uiobjectnum.ObjectName.Length)
             {
-                Debug.Log("sucess");
-                successPanel.SetActive(true);
-                successScore.text = ScoreManager.instance.currentScore.ToString();
+                successPanel.GetComponent<Animator>().SetTrigger("Success");
             }
-            else
+            else//Lose
             {
                 Debug.Log("fail");
                 failPanel.SetActive(true);

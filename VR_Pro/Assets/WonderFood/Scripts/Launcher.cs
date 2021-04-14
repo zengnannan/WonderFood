@@ -42,6 +42,13 @@ public class Launcher : MonoBehaviour
     {
         //First Get a Pool according to its chance
         var randomPool = Probability.GetChancePool<Pool>(objectPooler.pools);
+        if (randomPool.aIType ==AIType.WantedAI || randomPool.aIType == AIType.EnemyAI)
+        {
+            var aiScore = (int)UnityEngine.Random.Range(randomPool.minScore * ComboSystem.instance.comboRatio,
+           (randomPool.maxChance + 1) * ComboSystem.instance.comboRatio);
+            ScoreManager.HighestScore += aiScore;
+        }
+
         //Randomly Pick a Prefab in the pool
         var randomAI = objectPooler.GetGameObject(randomPool.name);
 
