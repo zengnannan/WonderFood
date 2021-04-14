@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHit: 0
   isGrounded: 0
-  h: 1
+  h: 2
   gravity: -10
 --- !u!136 &8453151960546639200
 CapsuleCollider:

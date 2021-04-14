@@ -10,8 +10,6 @@ public class ReadyGO : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
-        Destroy(gameObject,3);
     }
 
     void StartGo()
@@ -22,6 +20,7 @@ public class ReadyGO : MonoBehaviour
 
     void GameTimeStart()
     {
-        Time.timeScale = 1;
+        UITimer.instance.GameStart = true;
+        Destroy(gameObject);
     }
 }

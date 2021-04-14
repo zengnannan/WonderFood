@@ -11,7 +11,7 @@ public class TutorialBoard : MonoBehaviour
 
     public float duration;
 
-    private void Start()
+    private void Awake()
     {
         highest = transform.position;
         lowest = transform.position - new Vector3(0, goingDownDistance, 0);
@@ -19,15 +19,16 @@ public class TutorialBoard : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("highest:"+highest+"lowest"+lowest);
+
     }
     public void GoingUp()
     {
-        this.transform.DOMove(highest, duration);
+        transform.DOMove(highest, duration);
     }
 
     public void GoingDown()
     {
-        this.transform.DOMove(lowest, duration);
+       transform.DOMove(lowest, duration);
+
     }
 }

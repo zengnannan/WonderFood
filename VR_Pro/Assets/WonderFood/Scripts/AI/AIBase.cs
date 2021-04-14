@@ -8,7 +8,7 @@ public class AIBase : MonoBehaviour
     protected Rigidbody rb;
     protected Transform target;
     protected bool isLaunch;
-    protected PositionManager positionManager;
+ 
 
     public bool isHit;
     public bool isGrounded;
@@ -27,11 +27,12 @@ public class AIBase : MonoBehaviour
     protected event EventHandler OnStateTrue;
     protected event EventHandler OnStateFalse;
 
-    protected virtual void Awake()
+    protected void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        positionManager = PositionManager.instance;
-        target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
+      //  target = GameObject.Find("XR Rig").transform;
+        target = PositionManager.instance.GetRandomPosition(PositionManager.instance.targetPointPositions);
+        
     }
 
     protected virtual void Start()
@@ -89,7 +90,8 @@ public class AIBase : MonoBehaviour
         isHit = false;
         isGrounded = false;
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
-        target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
+        target = PositionManager.instance.GetRandomPosition(PositionManager.instance.targetPointPositions);
+        //target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
 
         // Unsubscribe【Right】event: AddScore、AddComboNum、PlayCorrectSFX
         OnStateTrue -= ScoreManager.instance.AddScore;

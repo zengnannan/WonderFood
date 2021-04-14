@@ -27,7 +27,6 @@ public class LevelManager : MonoBehaviour
 
         if (nowTime<=time1)
         {
-            Debug.Log("Now in Phase1");
             //Phase1
             foreach (var pool in objectPooler.pools)
             {
@@ -38,7 +37,6 @@ public class LevelManager : MonoBehaviour
         }
         else if (nowTime<=time2)
         {
-            Debug.Log("Now in Phase2");
             //Phase2
             foreach (var pool in objectPooler.pools)
             {
@@ -49,7 +47,6 @@ public class LevelManager : MonoBehaviour
         }
         else if (nowTime<=time3)
         {
-            Debug.Log("Now in Phase3");
             //Phase3
             foreach (var pool in objectPooler.pools)
             {

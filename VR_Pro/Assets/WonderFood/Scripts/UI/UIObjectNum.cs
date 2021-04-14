@@ -15,19 +15,13 @@ public class UIObjectNum : MonoBehaviour
     public Text[] currentObjectTextArray;
     [Header("The requirement of these Objectives")]
     public int[] requireObjectNum;
-    public Text[] requireObjectText;
-     void Start()
+    void Start()
      {
          instance = this;
         //开局时重置current object num
         for (int i = 0; i < currentObjectNum.Length; i++)
         {
-            currentObjectNum[i] = 0;
-        }
-
-        for (int i = 0; i < requireObjectNum.Length; i++)
-        {
-            requireObjectText[i].text = requireObjectNum[i].ToString();
+            currentObjectNum[i] = requireObjectNum[i];
         }
 
     }
@@ -36,7 +30,11 @@ public class UIObjectNum : MonoBehaviour
     {
         for (int i = 0; i < currentObjectTextArray.Length; i++)
         {
-            currentObjectTextArray[i].text = currentObjectNum[i].ToString();
+            if (currentObjectNum[i] >0)
+            {
+               currentObjectTextArray[i].text = currentObjectNum[i].ToString(); 
+            }
+            
         }
     }
 
@@ -49,7 +47,11 @@ public class UIObjectNum : MonoBehaviour
          {
              if (e.poolName == ObjectName[i])
              {
-                 currentObjectNum[i]++;
+                 currentObjectNum[i]--;
+                 if (currentObjectNum[i] == 0)
+                 {
+                     currentObjectTextArray[i].text = "√";
+                 }
              }
          }
     }

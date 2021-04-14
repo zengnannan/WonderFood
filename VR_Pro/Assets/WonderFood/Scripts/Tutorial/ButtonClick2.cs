@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class ButtonClick2 : XRBaseInteractable
 {
@@ -10,13 +11,16 @@ public class ButtonClick2 : XRBaseInteractable
     private GameObject Switch;
     private Vector3 lowest;
     private Vector3 highest;
+    private Tutorial tutorial;
 
     protected override void Awake()
     {
         base.Awake();
         onHoverEntered.AddListener(StartPress);
         onHoverExited.AddListener(EndPress);
+        tutorial = FindObjectOfType<Tutorial>();
     }
+
 
     private void OnDestroy()
     {
@@ -27,6 +31,7 @@ public class ButtonClick2 : XRBaseInteractable
     public void EndPress(XRBaseInteractor arg0)
     {
         Switch.transform.DOMove(highest, speed);
+
     }
 
     public void StartPress(XRBaseInteractor arg0)
@@ -64,8 +69,6 @@ public class ButtonClick2 : XRBaseInteractable
             Debug.Log(collider.name);
             Switch.transform.DOMove(lowest, speed);
         }
-
-
     }
 
     private void OnTriggerExit(Collider collider)
@@ -73,6 +76,15 @@ public class ButtonClick2 : XRBaseInteractable
         if (!collider.CompareTag("Button"))
         {
             Switch.transform.DOMove(highest, speed);
+            if (collider.GetComponent<WangZi>()!=null||collider.GetComponent<Pan>()!=null)
+            {
+                if (tutorial.ready==true)
+                {
+                    GameObject.Find("LeftHand Controller").SetActive(false);
+                    GameObject.Find("RightHand Controller").SetActive(false);
+                    SceneManager.LoadScene(3);
+                }
+            }
         }
     }
 }

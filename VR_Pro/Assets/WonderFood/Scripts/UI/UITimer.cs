@@ -11,13 +11,14 @@ public class UITimer : MonoBehaviour
     [SerializeField] private Text timeDisplay;
 
     public bool isGameOver;
+    public bool GameStart;
 
     private void Awake()
     {
         instance = this;
         this.gameObject.SetActive(true);
         isGameOver = false;
-
+        GameStart = false;
 
         timeDisplay.text = maxTime.ToString();
     }
@@ -29,7 +30,7 @@ public class UITimer : MonoBehaviour
 
     private void Update()
     {
-        if (!isGameOver)
+        if (!isGameOver && GameStart)
         {
             currentTime -= Time.deltaTime;
             timeDisplay.text = ((int)currentTime).ToString();
