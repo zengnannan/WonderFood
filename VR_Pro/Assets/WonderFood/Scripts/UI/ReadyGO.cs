@@ -7,11 +7,19 @@ public class ReadyGO : MonoBehaviour
 {
     [SerializeField] private Text ReadyGoText;
     private Animator anim;
-
-    void Start()
+    public static ReadyGO instance;
+    void Awake()
     {
+        instance = this;
+        anim = GetComponent<Animator>();
+        gameObject.GetComponent<Text>().enabled = false;
     }
 
+    public void StartButton()
+    {
+        gameObject.GetComponent<Text>().enabled = true;
+        anim.SetTrigger("Ready");
+    }
     void StartGo()
     {
         ReadyGoText.text = "Go";
