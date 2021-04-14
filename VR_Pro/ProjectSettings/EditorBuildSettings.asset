@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/WonderFood/Scene/1.unity
     guid: cf84ad478f78d1140ace19402e491d60
   - enabled: 1
+    path: Assets/WonderFood/Scene/HandTest.unity
+    guid: d2f76ea0faa40464a8ff11a3f3f94f56
+  - enabled: 1
     path: Assets/WonderFood/Scene/Level1.unity
     guid: 86154bca76c865e4f8c98de093ed8a77
   - enabled: 1

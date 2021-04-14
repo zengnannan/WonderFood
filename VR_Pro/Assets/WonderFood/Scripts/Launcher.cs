@@ -22,16 +22,19 @@ public class Launcher : MonoBehaviour
     private Vector3 shootPosition;
     private void Awake()
     {
-        objectPooler = GetComponent<ObjectPooler>();  
+        objectPooler = GetComponent<ObjectPooler>();
         instance = this;
     }
 
     void Update()
     {
-        if (Time.time >= lastShootTime + shootInterval)
+        if (UITimer.instance.GameStart && (!UITimer.instance.isGameOver))
         {
-            lastShootTime = Time.time;
-            BoardShoot();
+            if (Time.time >= lastShootTime + shootInterval)
+            {
+                lastShootTime = Time.time;
+                BoardShoot();
+            }
         }
     }
 
@@ -52,8 +55,7 @@ public class Launcher : MonoBehaviour
         var randomPosition = PositionManager.instance.GetRandomPosition(PositionManager.instance.InitialPointPositions);
         shootPosition = randomPosition.position;
 
-        var board = randomPosition.GetChild(0).gameObject;
-        board.SetActive(true);
+        var board = randomPosition.gameObject.transform.parent.gameObject;
         var anim = board.GetComponent<Animator>();
         anim.SetTrigger("Shoot");
     }

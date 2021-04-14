@@ -7,10 +7,10 @@ using System;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public int currentScore;
-    public int lastScore;
+    [HideInInspector]public int currentScore;
+    private int lastScore;
     public Text scoreText;
-    public int floatingScore;
+    private int floatingScore;
     public GameObject FloatingTextPrefab;
     public GameObject target;
     public float offset;

@@ -8,7 +8,7 @@ public class PositionManager : MonoBehaviour
     public Transform[] targetPointPositions;
     public Transform[] InitialPointPositions;
 
-    void Start()
+    void Awake()
     {
         instance = this;
     }
@@ -17,5 +17,6 @@ public class PositionManager : MonoBehaviour
     {
         var randomTarget = transforms[Random.Range(0, transforms.Length)];
         return randomTarget;
+        
     }
 }

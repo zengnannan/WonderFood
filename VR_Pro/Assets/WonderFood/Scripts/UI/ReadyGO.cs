@@ -7,13 +7,19 @@ public class ReadyGO : MonoBehaviour
 {
     [SerializeField] private Text ReadyGoText;
     private Animator anim;
-
-    void Start()
+    public static ReadyGO instance;
+    void Awake()
     {
-        Time.timeScale = 0;
-        Destroy(gameObject,3);
+        instance = this;
+        anim = GetComponent<Animator>();
+        gameObject.GetComponent<Text>().enabled = false;
     }
 
+    public void StartButton()
+    {
+        gameObject.GetComponent<Text>().enabled = true;
+        anim.SetTrigger("Ready");
+    }
     void StartGo()
     {
         ReadyGoText.text = "Go";
@@ -22,6 +28,7 @@ public class ReadyGO : MonoBehaviour
 
     void GameTimeStart()
     {
-        Time.timeScale = 1;
+        UITimer.instance.GameStart = true;
+        Destroy(gameObject);
     }
 }

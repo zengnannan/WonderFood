@@ -16,6 +16,12 @@ public class ImprovedHandController : MonoBehaviour
         _handAnimator = GetComponent<Animator>();
     }
 
+    private void OnDestroy()
+    {
+        controllerActionGrip.action.performed -= GripPress;
+        controllerActionTrigger.action.performed -= TriggerPress;
+    }
+
     private void TriggerPress(InputAction.CallbackContext obj) =>
         _handAnimator.SetFloat("Trigger", obj.ReadValue<float>());
 

@@ -7,16 +7,12 @@ public class LiHuiBoard : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        
     }
     private void Launch()
     {
         Launcher.instance.Shoot();
     }
 
-    private void Disppear()
-    {
-        this.gameObject.SetActive(false);
-    }
   
 }

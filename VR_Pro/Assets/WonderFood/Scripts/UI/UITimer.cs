@@ -11,28 +11,33 @@ public class UITimer : MonoBehaviour
     [SerializeField] private Text timeDisplay;
 
     public bool isGameOver;
+    public bool GameStart;
+
+    public int Min;
+    public int Sec;
 
     private void Awake()
     {
         instance = this;
         this.gameObject.SetActive(true);
         isGameOver = false;
-
-
-        timeDisplay.text = maxTime.ToString();
-    }
-
-    private void Start()
-    {
+        GameStart = false;
         currentTime = maxTime;
+        
     }
+
 
     private void Update()
     {
-        if (!isGameOver)
+        Min = (int)currentTime / 60;
+        Sec = (int) currentTime % 60;
+
+        timeDisplay.text = string.Format("{0:D2}", Min)+":"+ string.Format("{0:D2}", Sec);
+
+        if (!isGameOver && GameStart)
         {
             currentTime -= Time.deltaTime;
-            timeDisplay.text = ((int)currentTime).ToString();
+            
         }
 
         if (currentTime <= 5)

@@ -31,7 +31,8 @@ public class NoNeedAI : AIBase
         isHit = false;
         isGrounded = false;
         GetComponent<isPooledObject>().pooler.ReturnObject(this.gameObject);
-        target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
+        target = PositionManager.instance.GetRandomPosition(PositionManager.instance.targetPointPositions);
+        //target = positionManager.GetRandomPosition(positionManager.targetPointPositions);
 
         //玩家对EnemyAI【错误】反映的取消订阅：重置Combo数、喷脸特效、错误音效
         OnStateFalse -= ComboSystem.instance.ResetComboNum;
