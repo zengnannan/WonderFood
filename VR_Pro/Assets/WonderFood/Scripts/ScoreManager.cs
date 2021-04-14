@@ -14,6 +14,7 @@ public class ScoreManager : MonoBehaviour
     public GameObject FloatingTextPrefab;
     public GameObject target;
     public float offset;
+    public static int HighestScore;
 
 
     void Awake()
@@ -21,6 +22,7 @@ public class ScoreManager : MonoBehaviour
         instance = this;
         currentScore = 0;
         lastScore = 0;
+        HighestScore = 0;
     }
 
     void Update()
@@ -30,6 +32,7 @@ public class ScoreManager : MonoBehaviour
             currentScore = 0;
         }
         scoreText.text=currentScore.ToString();
+        Debug.Log("Highest score is" + HighestScore);
     }
     public void AddScore(object _sender, EventArgs _e)
     {
