@@ -9,6 +9,7 @@ public class ComboSystem : MonoBehaviour
     public static ComboSystem instance;
     public int lastComboNum;
     public int currentComboNum;
+    public int MaxComboNum;
     public float comboRatio;
     public Text comboRatioText;
     public Text comboNumText;
@@ -19,6 +20,7 @@ public class ComboSystem : MonoBehaviour
         lastComboNum = 0;
         currentComboNum = 0;
         comboRatioText.gameObject.SetActive(false);
+        MaxComboNum = currentComboNum;
     }
 
     void Update()
@@ -45,6 +47,11 @@ public class ComboSystem : MonoBehaviour
         {
             comboRatio = 2f;
             comboRatioText.text = "<color=orange>" + "X " + "</color>" + (8);
+        }
+
+        if(currentComboNum>MaxComboNum)
+        {
+            MaxComboNum = currentComboNum;
         }
   
     }
