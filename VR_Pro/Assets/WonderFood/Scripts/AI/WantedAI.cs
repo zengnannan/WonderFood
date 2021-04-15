@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WantedAI : AIBase
 {
+    
     protected override void Start()
     {
         base.Start();
@@ -31,6 +32,7 @@ public class WantedAI : AIBase
         //玩家对WantedAI【错误】情况：掉到地上时，没有被击中过，也没有被掉到地上过
         if (collision.gameObject.CompareTag("Ground") && isHit != true && isGrounded != true)
         {
+            Debug.Log("false state1");
             isGrounded = true;
             StateFalse(aiEventArgs);
         }
@@ -44,6 +46,7 @@ public class WantedAI : AIBase
 
         if (collision.gameObject.CompareTag("Pan"))
         {
+            Debug.Log("false state2");
             SoundManager.instance.PlaySound("HitFruit");
             if (isHit!=true&&isGrounded!=true)
             {

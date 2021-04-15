@@ -7,14 +7,15 @@ using System;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    [HideInInspector]public int currentScore;
+    [HideInInspector]public float currentScore;
     private int lastScore;
     public Text scoreText;
+    public Text RankText;
     private int floatingScore;
     public GameObject FloatingTextPrefab;
     public GameObject target;
     public float offset;
-    public static int HighestScore;
+    public static float HighestScore;
     public string Rank;
 
 
@@ -32,32 +33,48 @@ public class ScoreManager : MonoBehaviour
         {
             currentScore = 0;
         }
-        scoreText.text=currentScore.ToString();
+        scoreText.text=""+(int)currentScore;
         Debug.Log("Highest score is" + HighestScore);
-        if(currentScore/HighestScore<=0.7)
+        if (HighestScore!=0)
         {
-            Rank = "C";
+            Debug.Log($"currentscore:{currentScore}/highestscore:{HighestScore}/rankRatio:{currentScore/HighestScore}");
+            if (currentScore / HighestScore <= 0.7)
+            {
+                Rank = "C";
+            }
+            else if (currentScore / HighestScore > 0.7 && currentScore / HighestScore <= 0.8)
+            {
+
+                Rank = "B";
+            }
+            else if (currentScore / HighestScore > 0.8 && currentScore / HighestScore <= 0.9)
+            {
+                Rank = "A";
+            }
+            else if (currentScore / HighestScore > 0.9 && currentScore / HighestScore <= 0.95)
+            {
+                Rank = "S";
+            }
+            else if (currentScore / HighestScore > 0.95 && currentScore / HighestScore <1)
+            {
+                Rank = "SS";
+            }
+            else if (currentScore / HighestScore == 1)
+            {
+                Rank = "SSS";
+            }
+
         }
-        else if(currentScore / HighestScore >0.7 && currentScore / HighestScore <= 0.8)
-        {
-            Rank = "B";
-        }
-        else if (currentScore / HighestScore > 0.8 && currentScore / HighestScore <= 0.0)
-        {
-            Rank = "A";
-        }
-        else if (currentScore / HighestScore > 0.9 && currentScore / HighestScore <=1)
-        {
-            Rank = "S";
-        }
+       
+
+        RankText.text = Rank;
     }
     public void AddScore(object _sender, EventArgs _e)
     {
        GameObject ai = _sender as GameObject;
        AIEventArgs e = _e as AIEventArgs;
-       lastScore = currentScore;
-       floatingScore = (int) UnityEngine.Random.Range(e.pool.minScore * ComboSystem.instance.comboRatio,
-           (e.pool.maxScore + 1) * ComboSystem.instance.comboRatio);
+       lastScore = (int)currentScore;
+       floatingScore = ai.gameObject.GetComponent<AIBase>().myScore;
        currentScore += floatingScore;
         ShowFloatingText(ai);
     }

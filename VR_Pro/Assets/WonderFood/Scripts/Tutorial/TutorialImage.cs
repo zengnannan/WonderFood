@@ -37,7 +37,7 @@ public class TutorialImage : MonoBehaviour
 
     public void ShowImage()
     {
-        transform.position = board.transform.position+new Vector3(0,0,-0.1f);
+        transform.position = board.transform.position;
         UI_Alpha = 1;
         canvasGroup.blocksRaycasts = true;
     }

@@ -112,8 +112,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isHit: 0
   isGrounded: 0
-  h: 1
+  h: 1.7
   gravity: -10
+  Player: {fileID: 0}
 --- !u!136 &5403954450227271656
 CapsuleCollider:
   m_ObjectHideFlags: 0

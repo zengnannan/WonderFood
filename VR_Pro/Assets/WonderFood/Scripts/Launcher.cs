@@ -20,6 +20,10 @@ public class Launcher : MonoBehaviour
     private float lastShootTime;
 
     private Vector3 shootPosition;
+
+
+
+
     private void Awake()
     {
         objectPooler = GetComponent<ObjectPooler>();
@@ -42,16 +46,18 @@ public class Launcher : MonoBehaviour
     {
         //First Get a Pool according to its chance
         var randomPool = Probability.GetChancePool<Pool>(objectPooler.pools);
-        if (randomPool.aIType ==AIType.WantedAI || randomPool.aIType == AIType.EnemyAI)
-        {
-            var aiScore = (int)UnityEngine.Random.Range(randomPool.minScore * ComboSystem.instance.comboRatio,
-           (randomPool.maxChance + 1) * ComboSystem.instance.comboRatio);
-            ScoreManager.HighestScore += aiScore;
-        }
+     
 
         //Randomly Pick a Prefab in the pool
         var randomAI = objectPooler.GetGameObject(randomPool.name);
 
+        if (randomPool.aIType ==AIType.WantedAI || randomPool.aIType == AIType.EnemyAI)
+        {
+            var aiScore = Random.Range(randomPool.minScore * ComboSystem.instance.comboRatio,
+                (randomPool.maxScore + 1) * ComboSystem.instance.comboRatio);
+            randomAI.gameObject.GetComponent<AIBase>().myScore = (int)aiScore;
+            ScoreManager.HighestScore += randomAI.GetComponent<AIBase>().myScore;
+        }
         randomAI.transform.position = shootPosition;
 
         return randomAI;

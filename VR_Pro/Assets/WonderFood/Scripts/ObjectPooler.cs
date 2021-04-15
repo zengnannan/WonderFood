@@ -41,19 +41,26 @@ public class ObjectPooler : MonoBehaviour
     public Dictionary<string, Pool> nameToPool;
 
     // Start is called before the first frame update
+
+    void Awake()
+    {
+     
+    }
+
     void Start()
     {
-        instance = this;
+
+
+   instance = this;
         nameToQueue = new Dictionary<string, Queue<GameObject>>();
         nameToPool = new Dictionary<string, Pool>();
-
         foreach (var pool in pools)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>();
 
             GameObject poolName = new GameObject(pool.name);
             poolName.transform.SetParent(this.transform);
-            
+
             nameToQueue.Add(pool.name, objectPool);
             nameToPool.Add(pool.name, pool);
 
@@ -64,6 +71,7 @@ public class ObjectPooler : MonoBehaviour
                 objectPool.Enqueue(obj);
             }
         }
+        
     }
 
     public GameObject GetGameObject(string name)

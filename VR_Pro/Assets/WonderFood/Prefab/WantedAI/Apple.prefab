@@ -123,8 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c7768fbb1adb64cbb02914a0530098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
   isHit: 0
   isGrounded: 0
-  h: 1
+  h: 1.6
   gravity: -10

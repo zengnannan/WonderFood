@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Random = UnityEngine.Random;
 
 public class AIBase : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class AIBase : MonoBehaviour
     public float h = 20;
     public float gravity = -10;
 
+    public int myScore;
+    private int minScore;
+    private int maxScore;
     /// <summary>
     /// 2021/4/6 Every AI has 2 events, OnStateTrue and OnStateFalse.
     /// If player does the 【RIGHT】 operation to this AI, 【OnStateTrue】 will be called.
@@ -32,7 +36,8 @@ public class AIBase : MonoBehaviour
         rb = GetComponent<Rigidbody>();
       //  target = GameObject.Find("XR Rig").transform;
         target = PositionManager.instance.GetRandomPosition(PositionManager.instance.targetPointPositions);
-        
+        aiEventArgs = new AIEventArgs();
+
     }
 
     protected virtual void Start()
@@ -43,9 +48,14 @@ public class AIBase : MonoBehaviour
         rb.useGravity = false;
         
         //The basic data of every AI
-        aiEventArgs = new AIEventArgs();
+        //aiEventArgs = new AIEventArgs();
         aiEventArgs.poolName = this.transform.parent.name;
         aiEventArgs.pool = ObjectPooler.instance.nameToPool[aiEventArgs.poolName];
+        minScore = (int)aiEventArgs.pool.minScore;
+        //minScore = (int)ObjectPooler.instance.nameToPool[transform.parent.name].minScore;
+        //maxScore = (int) ObjectPooler.instance.nameToPool[transform.parent.name].maxScore;
+        Debug.Log("argminscore is" + minScore);
+
     }
 
     protected virtual void Update()
@@ -56,6 +66,21 @@ public class AIBase : MonoBehaviour
         }
     }
 
+    // public void CalScore()
+    // {
+    //     Debug.Log("I'M ENTER CAL");
+    //         //Debug.Log("current min score is"+aiEventArgs.pool.minScore);
+    //         //Debug.Log("current comboratio is" + ComboSystem.instance.comboRatio);
+    //     //aiScore = (int)Random.Range(aiEventArgs.pool.minScore * ComboSystem.instance.comboRatio,
+    //         //aiEventArgs.pool.maxScore * ComboSystem.instance.comboRatio);
+    //         Debug.Log("CalMinscore is"+minScore);
+    //         if (aiEventArgs == null)
+    //         {
+    //             Debug.Log("I'M NUO");
+    //         }
+    //     aiScore = (int)Random.Range(minScore * ComboSystem.instance.comboRatio,
+    //        maxScore * ComboSystem.instance.comboRatio);
+    // }
     protected virtual void AutoLaunch()
     {
         rb.useGravity = true;

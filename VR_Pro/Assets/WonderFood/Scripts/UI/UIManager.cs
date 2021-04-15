@@ -61,16 +61,17 @@ public class UIManager : MonoBehaviour
             //Success
             if (completeNum == uiobjectnum.ObjectName.Length)
             {
+                successPanel.SetActive(true);
                 successPanel.GetComponent<Animator>().SetTrigger("Success");
             }
             else//Lose
             {
-                Debug.Log("fail");
                 failPanel.SetActive(true);
-                failScore.text = ScoreManager.instance.currentScore.ToString();
+                Debug.Log("fail");
+                failPanel.GetComponent<Animator>().SetTrigger("Success");
             }
 
-            Time.timeScale = 0;
+            
         }
 
 

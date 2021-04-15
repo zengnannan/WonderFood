@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 2131797535224051399}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26c7768fbb1adb64cbb02914a0530098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPanSound: {fileID: 8300000, guid: e409eea6d90f1604095c28c134f72d6f, type: 3}
   isHit: 0
   isGrounded: 0
-  h: 1
+  h: 1.6
   gravity: -10
+  myScore: 0

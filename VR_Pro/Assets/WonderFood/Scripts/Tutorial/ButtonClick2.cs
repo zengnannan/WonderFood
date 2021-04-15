@@ -82,7 +82,7 @@ public class ButtonClick2 : XRBaseInteractable
                 {
                     GameObject.Find("LeftHand Controller").SetActive(false);
                     GameObject.Find("RightHand Controller").SetActive(false);
-                    SceneManager.LoadScene(3);
+                    SceneManager.LoadScene(1);
                 }
             }
         }

@@ -110,11 +110,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9184fb7b7e1e654e980fa7dfd6934a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPanSound: {fileID: 8300000, guid: 52ab7db1d49bdd3439068cb794b500a9, type: 3}
   isHit: 0
   isGrounded: 0
-  h: 1
+  h: 1.6
   gravity: -10
+  Player: {fileID: 0}
 --- !u!135 &6385589268175598867
 SphereCollider:
   m_ObjectHideFlags: 0
