@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UITimer : MonoBehaviour
 {
@@ -21,7 +22,11 @@ public class UITimer : MonoBehaviour
         instance = this;
         this.gameObject.SetActive(true);
         isGameOver = false;
-        GameStart = false;
+        
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            GameStart = false;
+        }
         currentTime = maxTime;
         
     }

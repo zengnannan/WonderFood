@@ -50,10 +50,10 @@ public class UIManager : MonoBehaviour
             //see how many object players finished
             for (int i = 0; i < uiobjectnum.ObjectName.Length; i++)
             {
-                Debug.Log("Enter fun1");
+           
                 if (uiobjectnum.currentObjectNum[i] <= 0)
                 {
-                    Debug.Log("Enter fuc2");
+              
                     completeNum++;
                 }
             }
@@ -61,11 +61,13 @@ public class UIManager : MonoBehaviour
             //Success
             if (completeNum == uiobjectnum.ObjectName.Length)
             {
+                SoundManager.instance.PlaySound("成功音效");
                 successPanel.SetActive(true);
                 successPanel.GetComponent<Animator>().SetTrigger("Success");
             }
             else//Lose
             {
+                SoundManager.instance.PlaySound("失败音效");
                 failPanel.SetActive(true);
                 Debug.Log("fail");
                 failPanel.GetComponent<Animator>().SetTrigger("Success");

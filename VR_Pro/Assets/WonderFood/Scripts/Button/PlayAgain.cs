@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
-public class PlayAgain : MonoBehaviour
+public class PlayAgain : RotatingButton
 {
     void OnTriggerEnter(Collider col)
     {

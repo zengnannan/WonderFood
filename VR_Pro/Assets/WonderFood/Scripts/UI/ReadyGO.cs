@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ReadyGO : MonoBehaviour
 {
@@ -13,6 +14,14 @@ public class ReadyGO : MonoBehaviour
         instance = this;
         anim = GetComponent<Animator>();
         gameObject.GetComponent<Text>().enabled = false;
+    }
+
+    void Start()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            StartButton();
+        }
     }
 
     public void StartButton()

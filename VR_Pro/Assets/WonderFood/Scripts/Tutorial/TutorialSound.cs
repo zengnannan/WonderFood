@@ -7,7 +7,8 @@ using  System;
 
 public class TutorialSound : MonoBehaviour
 {
-    public List<AudioClip> TutorialAudioClips;
+    public List<AudioClip> TutorialAudioClips_English;
+    public List<AudioClip> TutorialAudioClips_Chinese;
     private AudioSource audioSource;
 
 
@@ -18,14 +19,33 @@ public class TutorialSound : MonoBehaviour
 
     public void PlaySound(int i)
     {
-        audioSource.PlayOneShot(TutorialAudioClips[i - 1]);
+        if (PlayerPrefs.GetInt("Language") == 1)
+        {
+          audioSource.PlayOneShot(TutorialAudioClips_English[i - 1]);  
+        }
+
+        if (PlayerPrefs.GetInt("Language") == 0)
+        {
+            audioSource.PlayOneShot(TutorialAudioClips_Chinese[i - 1]);
+        }
+
     }
 
     public void PlaySound(int i, UnityAction callback = null)
     {
-        var clip = TutorialAudioClips[i - 1];
-        audioSource.PlayOneShot(clip);
-        StartCoroutine(AudioPlayFinished(clip.length, callback));
+        if (PlayerPrefs.GetInt("Language") == 1)
+        {
+            var clip = TutorialAudioClips_English[i - 1];
+            audioSource.PlayOneShot(clip);
+            StartCoroutine(AudioPlayFinished(clip.length, callback));
+        }
+
+        if (PlayerPrefs.GetInt("Language") == 0)
+        {
+            var clip = TutorialAudioClips_Chinese[i - 1];
+            audioSource.PlayOneShot(clip);
+            StartCoroutine(AudioPlayFinished(clip.length, callback));
+        }
     }
 
     private IEnumerator AudioPlayFinished(float time, UnityAction callback)

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2042100467204546793}
   - component: {fileID: 8743356430722584190}
   - component: {fileID: 6798717744180372302}
+  - component: {fileID: 3741549903625546520}
   - component: {fileID: 5908200992649783946}
   - component: {fileID: 4139357841769367395}
   - component: {fileID: 5403954450227271656}
@@ -82,6 +83,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3741549903625546520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781696469887989738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42f73eed7c4a2494baafcc26a0a275de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 0.3371197, b: 0.16509432, a: 1}
+  outlineWidth: 3
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
 --- !u!54 &5908200992649783946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -114,6 +133,7 @@ MonoBehaviour:
   isGrounded: 0
   h: 1.7
   gravity: -10
+  myScore: 0
   Player: {fileID: 0}
 --- !u!136 &5403954450227271656
 CapsuleCollider:

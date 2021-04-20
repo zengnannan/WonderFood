@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/WonderFood/Scene/NewLevel2.unity
     guid: bee9a0ad7eca50f438c87367a236fc1a
+  - enabled: 1
+    path: Assets/WonderFood/Scene/MainMenu.unity
+    guid: 5830e5e9ed877b64489c080bd9d6446d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6b4712e3618cfd947b3f2554b5064f48,
       type: 2}

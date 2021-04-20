@@ -12,9 +12,11 @@ public class ButtonClick2 : XRBaseInteractable
     private Vector3 lowest;
     private Vector3 highest;
     private Tutorial tutorial;
+    private bool doOnce;
 
     protected override void Awake()
     {
+        doOnce = false;
         base.Awake();
         onHoverEntered.AddListener(StartPress);
         onHoverExited.AddListener(EndPress);
@@ -62,6 +64,23 @@ public class ButtonClick2 : XRBaseInteractable
     // {
     //     Switch.transform.DOMove(highest, speed);
     // }
+
+    private void OnTriggerEnter(Collider collider)
+    {
+        if (!collider.CompareTag("Button"))
+        {
+            Switch.transform.DOMove(highest, speed);
+            if (collider.GetComponent<WangZi>() != null || collider.GetComponent<Pan>() != null)
+            {
+                if (tutorial.ready == true)
+                {
+                   SoundManager.instance.PlaySound("叮 铃声");
+                }
+
+            }
+        }
+    }
+
     private void OnTriggerStay(Collider collider)
     {
         if (!collider.CompareTag("Button"))

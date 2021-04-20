@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : RotatingButton
 {
+    protected override void Update()
+    {
+        base.Update();
+    }
+
     void OnTriggerEnter(Collider col)
     {
         if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)

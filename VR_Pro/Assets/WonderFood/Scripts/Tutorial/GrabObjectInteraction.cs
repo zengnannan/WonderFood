@@ -18,6 +18,13 @@ public class GrabObjectInteraction : MonoBehaviour
         hasPickPan = false;
     }
 
+    void Update()
+    {
+        if (hasPickedUp==true)
+        {
+            NewTutorial.FirstPickup = true;
+        }
+    }
     public void HoverOver()
     {
         GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
