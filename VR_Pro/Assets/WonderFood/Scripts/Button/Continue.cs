@@ -6,18 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Continue : RotatingButton
 {
-    
-    protected override void Update()
+    protected override void OnTriggerStay(Collider col)
     {
-        base.Update();
-    }
-    void OnTriggerEnter(Collider col)
-    {
-        if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+        base.OnTriggerStay(col);
+        if (V3Ope.BiggerV3(transform.localScale, new Vector3(ChangedScale - 0.01f, ChangedScale - 0.01f, ChangedScale - 0.01f)))
         {
             var index = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(index+1);
         }
     }
+
 
 }

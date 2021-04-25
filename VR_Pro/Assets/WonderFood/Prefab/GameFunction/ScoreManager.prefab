@@ -52,4 +52,10 @@ MonoBehaviour:
   - {fileID: 1680103509565787609, guid: 6c73c9a82c26bb04dbc6fffc7adb219d, type: 3}
   target: {fileID: 0}
   offset: 0.5
-  Rank: []
+  Rank:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

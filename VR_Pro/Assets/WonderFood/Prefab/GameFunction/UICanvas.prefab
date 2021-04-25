@@ -1482,6 +1482,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7553174188217868905, guid: 2ac2226f53b2a1a4fbee52a6552ac6e8,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 1785984501060891697}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ac2226f53b2a1a4fbee52a6552ac6e8, type: 3}
 --- !u!224 &8635687681018889732 stripped
@@ -1587,6 +1592,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.902
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135963543329072856, guid: 04bbc833b742a074aadf314ae57fe122,
+        type: 3}
+      propertyPath: ChangedScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135963543329072856, guid: 04bbc833b742a074aadf314ae57fe122,
+        type: 3}
+      propertyPath: IdleScale
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135963543329072856, guid: 04bbc833b742a074aadf314ae57fe122,
+        type: 3}
+      propertyPath: scaleUPSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8135963543329072856, guid: 04bbc833b742a074aadf314ae57fe122,
+        type: 3}
+      propertyPath: scaleDOWNSpeed
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8135963543695907714, guid: 04bbc833b742a074aadf314ae57fe122,
         type: 3}
