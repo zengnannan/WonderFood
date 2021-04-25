@@ -9,6 +9,7 @@ public class TutorialImage : MonoBehaviour
     public float alphaSpeed;
     private CanvasGroup canvasGroup;
     private TutorialBoard board;
+    
 
     void Start()
     {

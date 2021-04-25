@@ -22,11 +22,8 @@ public class UITimer : MonoBehaviour
         instance = this;
         this.gameObject.SetActive(true);
         isGameOver = false;
-        
-        if (SceneManager.GetActiveScene().buildIndex != 1)
-        {
-            GameStart = false;
-        }
+
+        GameStart = false;
         currentTime = maxTime;
         
     }

@@ -45,7 +45,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScore: 0
   scoreText: {fileID: 0}
-  FloatingTextPrefab: {fileID: 1680103509565787609, guid: f2a9c50d53b9ce141857f179c4f2fc91,
-    type: 3}
+  FloatingTextPrefabList:
+  - {fileID: 1680103509565787609, guid: f2a9c50d53b9ce141857f179c4f2fc91, type: 3}
+  - {fileID: 1680103509565787609, guid: a12c2639c17a1e24ca630cf45f6f0708, type: 3}
+  - {fileID: 1680103509565787609, guid: f2261d7e44a44eb4c95ee36cf667d013, type: 3}
+  - {fileID: 1680103509565787609, guid: 6c73c9a82c26bb04dbc6fffc7adb219d, type: 3}
   target: {fileID: 0}
   offset: 0.5
+  Rank: []

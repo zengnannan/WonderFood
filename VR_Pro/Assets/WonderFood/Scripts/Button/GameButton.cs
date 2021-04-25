@@ -47,7 +47,7 @@ public class GameButton : MonoBehaviour
             transform.DOMove(highest, ClickDuration);
             if (collider.GetComponent<WangZi>() != null || collider.GetComponent<Pan>() != null)
             {
-                if (!UITimer.instance.GameStart && SceneManager.GetActiveScene().buildIndex != 1)
+                if (!UITimer.instance.GameStart&&PlayerPrefs.GetInt("TutorialEnter")!=1)
                 {
                     if (doOnce == false)
                     {

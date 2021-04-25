@@ -9,6 +9,7 @@ public class success : MonoBehaviour
     public Text ScoreText;
     public void ShowSuccessButtons()
     {
+        Debug.Log("Show Button");
         foreach (var button in successButtons)
         {
             button.SetActive(true);

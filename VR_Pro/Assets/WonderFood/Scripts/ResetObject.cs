@@ -23,7 +23,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
             if (shouldReturnHome)
                 transform.position = returnToPosition.position;
-            Debug.Log("On method");
+
     }
 
         IEnumerator returnObj()
@@ -35,11 +35,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
         private void OnTriggerEnter(Collider col)
         {
-            Debug.Log("On trigger");
-            if (col.gameObject.tag == "Ground")
+ 
+            if (col.gameObject.tag == "Ground"&&gameObject.GetComponent<GrabObjectInteraction>().hasPickedUp==false)
             {
-                Debug.Log("On ground");
-            StartCoroutine(returnObj());
+
+             StartCoroutine(returnObj());
             }
         }
     }

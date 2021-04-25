@@ -72,11 +72,7 @@ public class UIManager : MonoBehaviour
                 Debug.Log("fail");
                 failPanel.GetComponent<Animator>().SetTrigger("Success");
             }
-
-            
         }
-
-
     }
 
     public void PlayAgain()

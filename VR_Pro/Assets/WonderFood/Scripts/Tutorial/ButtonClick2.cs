@@ -11,16 +11,20 @@ public class ButtonClick2 : XRBaseInteractable
     private GameObject Switch;
     private Vector3 lowest;
     private Vector3 highest;
-    private Tutorial tutorial;
+    private NewTutorial tutorial;
     private bool doOnce;
+    private bool playOnce;
+    private TutorialSound tutorialSound;
 
     protected override void Awake()
     {
         doOnce = false;
+        playOnce = false;
         base.Awake();
         onHoverEntered.AddListener(StartPress);
         onHoverExited.AddListener(EndPress);
-        tutorial = FindObjectOfType<Tutorial>();
+        tutorial = FindObjectOfType<NewTutorial>();
+        tutorialSound = FindObjectOfType<TutorialSound>();
     }
 
 
@@ -95,15 +99,25 @@ public class ButtonClick2 : XRBaseInteractable
         if (!collider.CompareTag("Button"))
         {
             Switch.transform.DOMove(highest, speed);
+            if (playOnce==false&&tutorial.ready==false&&tutorial.finishedTenVoice==true)
+            {
+                tutorialSound.PlaySound(11,PlayOnceFalse);
+                playOnce = true;
+            }
+
             if (collider.GetComponent<WangZi>()!=null||collider.GetComponent<Pan>()!=null)
             {
                 if (tutorial.ready==true)
                 {
-                    GameObject.Find("LeftHand Controller").SetActive(false);
-                    GameObject.Find("RightHand Controller").SetActive(false);
-                    SceneManager.LoadScene(1);
+                    SceneManager.LoadScene(2);
                 }
+
             }
         }
+    }
+
+    private void PlayOnceFalse()
+    {
+        playOnce = false;
     }
 }

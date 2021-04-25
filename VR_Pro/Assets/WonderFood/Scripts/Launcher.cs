@@ -44,12 +44,16 @@ public class Launcher : MonoBehaviour
 
     public GameObject Shoot()
     {
+
+        var nowTime = UITimer.instance.maxTime - UITimer.instance.currentTime;
+
         //First Get a Pool according to its chance
         var randomPool = Probability.GetChancePool<Pool>(objectPooler.pools);
      
 
         //Randomly Pick a Prefab in the pool
         var randomAI = objectPooler.GetGameObject(randomPool.name);
+      
 
         if (randomPool.aIType ==AIType.WantedAI || randomPool.aIType == AIType.EnemyAI)
         {

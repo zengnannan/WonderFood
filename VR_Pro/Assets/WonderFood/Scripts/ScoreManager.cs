@@ -10,13 +10,13 @@ public class ScoreManager : MonoBehaviour
     [HideInInspector]public float currentScore;
     private int lastScore;
     public Text scoreText;
-    public Text RankText;
     private int floatingScore;
-    public GameObject FloatingTextPrefab;
+    public GameObject[] FloatingTextPrefabList;
     public GameObject target;
     public float offset;
     public static float HighestScore;
-    public string Rank;
+    public List<GameObject> Rank;
+    private GameObject floatingText;
 
 
     void Awake()
@@ -35,39 +35,43 @@ public class ScoreManager : MonoBehaviour
         }
         scoreText.text=""+(int)currentScore;
         Debug.Log("Highest score is" + HighestScore);
-        if (HighestScore!=0)
+        if (HighestScore!=0&&UITimer.instance.currentTime<=0)
         {
             Debug.Log($"currentscore:{currentScore}/highestscore:{HighestScore}/rankRatio:{currentScore/HighestScore}");
             if (currentScore / HighestScore <= 0.7)
             {
-                Rank = "C";
+                Rank[0].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.7 && currentScore / HighestScore <= 0.8)
             {
-
-                Rank = "B";
+               
+                Rank[1].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.8 && currentScore / HighestScore <= 0.9)
             {
-                Rank = "A";
+                
+                Rank[2].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.9 && currentScore / HighestScore <= 0.95)
             {
-                Rank = "S";
+                
+                Rank[3].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.95 && currentScore / HighestScore <1)
             {
-                Rank = "SS";
+              
+                Rank[4].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore == 1)
             {
-                Rank = "SSS";
+         
+                Rank[5].gameObject.SetActive(true);
             }
 
         }
        
 
-        RankText.text = Rank;
+       
     }
     public void AddScore(object _sender, EventArgs _e)
     {
@@ -81,7 +85,25 @@ public class ScoreManager : MonoBehaviour
 
     void ShowFloatingText(GameObject _sender)
     {
-        var floatingText = Instantiate(FloatingTextPrefab);
+        if (ComboSystem.comboPhase==0)
+        {
+            floatingText = Instantiate(FloatingTextPrefabList[0]);
+        }
+
+        if (ComboSystem.comboPhase == 1)
+        {
+            floatingText = Instantiate(FloatingTextPrefabList[1]);
+        }
+
+        if (ComboSystem.comboPhase == 2)
+        {
+            floatingText = Instantiate(FloatingTextPrefabList[2]);
+        }
+
+        if (ComboSystem.comboPhase == 3)
+        {
+            floatingText = Instantiate(FloatingTextPrefabList[3]);
+        }
         floatingText.transform.position = _sender.transform.position+ new  Vector3(0,offset,0);
         floatingText.GetComponent<TextMesh>().text = floatingScore.ToString();
         //Instantiate(FloatingTextPrefab, _sender.transform.position,transform.rotation);

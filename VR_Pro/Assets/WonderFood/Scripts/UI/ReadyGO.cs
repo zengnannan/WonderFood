@@ -18,7 +18,7 @@ public class ReadyGO : MonoBehaviour
 
     void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (PlayerPrefs.GetInt("TutorialEnter")==1)
         {
             StartButton();
         }

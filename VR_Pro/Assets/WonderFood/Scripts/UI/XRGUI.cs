@@ -18,15 +18,15 @@ public class XRGUI : MonoBehaviour
     }
    public void LoadNewScene()
     {
-        
-        SceneManager.LoadScene("NewLevel1Button");
+        PlayerPrefs.SetInt("TutorialEnter",0);
+        SceneManager.LoadScene(2);
         SoundManager.instance.PlaySound("UIClick");
     }
 
    public void Tutorial()
    {
-       
-       LanguagePanel.SetActive(true);
+       PlayerPrefs.SetInt("TutorialEnter", 1);
+        LanguagePanel.SetActive(true);
        MainMenu.SetActive(false);
    }
 
@@ -39,13 +39,14 @@ public class XRGUI : MonoBehaviour
    {
         // ChineseVersion= true;
         PlayerPrefs.SetInt("Language",0);
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene(1);
     }
 
    public void EnglishButton()
    {
        // EnglishVersion= true;
-       PlayerPrefs.SetInt("Tutorial",1);
+       PlayerPrefs.SetInt("Language", 1);
+       SceneManager.LoadScene(1);
     }
 
 }

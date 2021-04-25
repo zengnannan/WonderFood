@@ -7,14 +7,19 @@ using UnityEngine.UI;
 public class ComboSystem : MonoBehaviour
 {
     public static ComboSystem instance;
+    [Header("ComboNum")]
     public int lastComboNum;
     public int currentComboNum;
+    [Header("MaxCombo")]
     public int MaxComboNum;
-    public float comboRatio;
+    [HideInInspector]public float comboRatio;
     public Text comboNumText;
     public Text MaxComboText;
 
-    public List<Combo> comboList;
+    private Animator anim;
+    private bool doOnce;
+    [HideInInspector] public static int comboPhase;
+    
 
     private void Start()
     {
@@ -22,46 +27,67 @@ public class ComboSystem : MonoBehaviour
         lastComboNum = 0;
         currentComboNum = 0;
         MaxComboNum = currentComboNum;
+        anim = GetComponent<Animator>();
+        doOnce = false;
     }
 
     void Update()
     {
+        #region ComboNum
+        //ComboNum
         comboNumText.text = currentComboNum.ToString();
         
-        if (currentComboNum>=0&&currentComboNum<2)
+        if (lastComboNum == currentComboNum)
+        {
+            anim.SetBool("ComboState", false);
+        }
+
+        if (lastComboNum > currentComboNum)
+        {
+            if (doOnce)
+            {
+              anim.SetTrigger("StopCombo");
+              anim.SetBool("ComboState", false);
+            }
+
+            doOnce = false;
+        }
+
+        if (lastComboNum < currentComboNum)
+        {
+            anim.SetBool("ComboState",true);
+            doOnce = true;
+        }
+        #endregion
+
+
+
+        if (currentComboNum >= 0 && currentComboNum < 2)
         {
             Debug.Log(currentComboNum);
             comboRatio = 1f;
-
-            foreach (var combo in comboList)
-            {
-                Debug.Log("disappear");
-                combo.gameObject.SetActive(false);
-            }
+            comboPhase = 0;
         }
-        else if (currentComboNum>=2&&currentComboNum<4)
+        else if (currentComboNum >= 2 && currentComboNum < 4)
         {
             comboRatio = 1.2f;
-            comboList[0].gameObject.SetActive(true);
-            // comboRatioText.gameObject.SetActive(true);
-            // comboRatioText.text = "<color=orange>" + "X " + "</color>" + (2);
+            comboPhase = 1;
+
         }
-        else if (currentComboNum>=4&&currentComboNum<8)
+        else if (currentComboNum >= 4 && currentComboNum < 8)
         {
             comboRatio = 1.5f;
-            comboList[0].gameObject.SetActive(false);
-            comboList[1].gameObject.SetActive(true);
+            comboPhase = 2;
             //comboRatioText.text = "<color=orange>" + "X " + "</color>" + (4);
         }
-        else if (currentComboNum>=8)
+        else if (currentComboNum >= 8)
         {
             comboRatio = 2f;
-            comboList[1].gameObject.SetActive(false);
-            comboList[2].gameObject.SetActive(true);
+            comboPhase = 3;
             //comboRatioText.text = "<color=orange>" + "X " + "</color>" + (8);
         }
 
-        if(currentComboNum>MaxComboNum)
+        if (currentComboNum > MaxComboNum)
         {
             MaxComboNum = currentComboNum;
         }
@@ -70,7 +96,7 @@ public class ComboSystem : MonoBehaviour
 
     }
 
-    
+
     public void AddComboNum(object _sender, EventArgs _e)
     {
         GameObject ai = _sender as GameObject;
@@ -85,7 +111,7 @@ public class ComboSystem : MonoBehaviour
         GameObject ai = _sender as GameObject;
         AIEventArgs e = _e as AIEventArgs;
 
-        lastComboNum = 0;
+        lastComboNum = currentComboNum;
         currentComboNum = 0;
     }
 }

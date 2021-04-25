@@ -130,6 +130,7 @@ public class AIBase : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
+
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;

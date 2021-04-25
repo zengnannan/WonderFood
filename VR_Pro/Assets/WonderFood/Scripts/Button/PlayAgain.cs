@@ -8,11 +8,30 @@ public class PlayAgain : RotatingButton
 {
     void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+        //replay tutorial
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            var index = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(index);
+            var tutorial = FindObjectOfType<NewTutorial>();
+            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            {
+                if (tutorial.finishedTenVoice == true)
+                {
+                    SceneManager.LoadScene(1);
+                }
+
+            }
         }
+
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            {
+                var index = SceneManager.GetActiveScene().buildIndex;
+                PlayerPrefs.SetInt("TutorialEnter", 0);
+                SceneManager.LoadScene(index);
+            }
+        }
+
     }
 
 }

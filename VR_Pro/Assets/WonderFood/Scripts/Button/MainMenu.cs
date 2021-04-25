@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : RotatingButton
 {
     protected override void Update()
@@ -13,9 +14,25 @@ public class MainMenu : RotatingButton
 
     void OnTriggerEnter(Collider col)
     {
-        if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            SceneManager.LoadScene(0);
+            var tutorial = FindObjectOfType<NewTutorial>();
+            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            {
+                if (tutorial.finishedTenVoice == true)
+                {
+                    SceneManager.LoadScene(0);
+                }
+            }
         }
+
+        if (SceneManager.GetActiveScene().buildIndex != 1)
+        {
+            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+
     }
 }

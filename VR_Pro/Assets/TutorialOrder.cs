@@ -9,7 +9,6 @@ public class TutorialOrder : MonoBehaviour
 
     void Awake()
     {
-        GetComponent<MeshRenderer>().enabled = false;
         haveHang = false;
     }
 
