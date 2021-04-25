@@ -29016,6 +29016,7 @@ Transform:
   - {fileID: 1201454704}
   - {fileID: 1587182855}
   - {fileID: 798183883}
+  - {fileID: 1795893463}
   - {fileID: 1370351450}
   - {fileID: 1193898768}
   - {fileID: 1762881125}
@@ -29024,7 +29025,6 @@ Transform:
   - {fileID: 181108811}
   - {fileID: 698186511}
   - {fileID: 1053745088}
-  - {fileID: 1795893463}
   - {fileID: 100628990}
   - {fileID: 2071175058}
   - {fileID: 1183129782}
@@ -40408,7 +40408,7 @@ Transform:
   m_Children:
   - {fileID: 2090245405}
   m_Father: {fileID: 1273866705}
-  m_RootOrder: 300
+  m_RootOrder: 292
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1796688838
 PrefabInstance:
@@ -41379,7 +41379,7 @@ PrefabInstance:
     - target: {fileID: 603959610797798447, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}
       propertyPath: maxTime
-      value: 10
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 603959610838870128, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}
@@ -41461,6 +41461,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DrumstickNum
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.988338
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1788619491443652803, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}

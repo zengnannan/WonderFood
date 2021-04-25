@@ -13,8 +13,7 @@ public class UIManager : MonoBehaviour
     public GameObject successPanel;
     public GameObject failPanel;
     private XRRayInteractor[] xrRays;
-    public Text successScore;
-    public Text failScore;
+
 
     private TutorialBoard endBoard;
 

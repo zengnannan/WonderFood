@@ -12,9 +12,12 @@ public class XRGUI : MonoBehaviour
     public GameObject LanguagePanel;
     public GameObject MainMenu;
 
+
     void Start()
     {
         LanguagePanel.SetActive(false);
+        PlayerPrefs.SetFloat("PlayerScore",0);
+        PlayerPrefs.SetFloat("SystemScore",0);
     }
    public void LoadNewScene()
     {

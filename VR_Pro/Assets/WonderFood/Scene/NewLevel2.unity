@@ -38944,6 +38944,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.9345745
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785984501060891697, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1788619491443652803, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}
       propertyPath: ClickDuration
