@@ -6,32 +6,36 @@ using UnityEngine.SceneManagement;
 
 public class PlayAgain : RotatingButton
 {
-    void OnTriggerEnter(Collider col)
+
+    protected override void OnTriggerStay(Collider col)
     {
-        //replay tutorial
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        base.OnTriggerStay(col);
+        if (V3Ope.BiggerV3(transform.localScale, new Vector3(ChangedScale - 0.01f, ChangedScale - 0.01f, ChangedScale - 0.01f)))
         {
-            var tutorial = FindObjectOfType<NewTutorial>();
-            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            //replay tutorial
+            if (SceneManager.GetActiveScene().buildIndex == 1)
             {
-                if (tutorial.finishedTenVoice == true)
+                var tutorial = FindObjectOfType<NewTutorial>();
+                if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
                 {
-                    SceneManager.LoadScene(1);
+                    if (tutorial.finishedTenVoice == true)
+                    {
+                        SceneManager.LoadScene(1);
+                    }
+
                 }
-
             }
-        }
 
-        if (SceneManager.GetActiveScene().buildIndex != 1)
-        {
-            if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+            if (SceneManager.GetActiveScene().buildIndex != 1)
             {
-                var index = SceneManager.GetActiveScene().buildIndex;
-                PlayerPrefs.SetInt("TutorialEnter", 0);
-                SceneManager.LoadScene(index);
+                if (col.GetComponent<WangZi>() != null || col.GetComponent<Pan>() != null)
+                {
+                    var index = SceneManager.GetActiveScene().buildIndex;
+                    PlayerPrefs.SetInt("TutorialEnter", 0);
+                    SceneManager.LoadScene(index);
+                }
             }
         }
-
     }
 
 }
