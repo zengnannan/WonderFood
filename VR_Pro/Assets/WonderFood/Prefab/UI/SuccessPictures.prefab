@@ -762,7 +762,6 @@ GameObject:
   - component: {fileID: 8135963543695907837}
   - component: {fileID: 8135963543695907836}
   - component: {fileID: 8135963543695907714}
-  - component: {fileID: 7921228391812722398}
   m_Layer: 5
   m_Name: SuccessPictures
   m_TagString: Untagged
@@ -818,25 +817,6 @@ MonoBehaviour:
   - {fileID: 272840146703775035}
   - {fileID: 272840146466878166}
   ScoreText: {fileID: 0}
---- !u!95 &7921228391812722398
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8135963543695907838}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c6314242b5327e44e9eed2a41c82ba1c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8135963543892772108
 GameObject:
   m_ObjectHideFlags: 0
@@ -1028,7 +1008,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8135963544035003570
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1483,6 +1463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayAgain_Button
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5a77b2322a0c685489346711adbcf5b1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a77b2322a0c685489346711adbcf5b1, type: 3}
 --- !u!1 &272840146466878166 stripped
@@ -1574,6 +1559,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Continue_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: cc8427e33dae57e40a40e1697f465f16,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc8427e33dae57e40a40e1697f465f16, type: 3}
@@ -1667,6 +1657,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenu_Button
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a2aae4064bb6ec648abf495703be0458,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2aae4064bb6ec648abf495703be0458, type: 3}

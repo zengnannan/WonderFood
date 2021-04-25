@@ -40,4 +40,14 @@ public class ReadyGO : MonoBehaviour
         UITimer.instance.GameStart = true;
         Destroy(gameObject);
     }
+
+    void ReadyAudio()
+    {
+        SoundManager.instance.PlaySound("Voice_Ready");
+    }
+
+    void GoAudio()
+    {
+        SoundManager.instance.PlaySound("Voice_GO");
+    }
 }

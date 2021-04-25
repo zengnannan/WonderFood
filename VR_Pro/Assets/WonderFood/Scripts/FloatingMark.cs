@@ -10,14 +10,20 @@ public class FloatingMark : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("XR Rig");
-
+        
     }
     void Update()
     {
-        this.gameObject.transform.forward= Player.transform.position - transform.position;
-        if (gameObject.GetComponentInParent<AIBase>().isHit==true&& gameObject.GetComponentInParent<AIBase>().isGrounded==true)
+        
+        this.gameObject.transform.forward = transform.position - Player.transform.position;
+        if (gameObject.GetComponentInParent<AIBase>().isHit==true || gameObject.GetComponentInParent<AIBase>().isGrounded==true)
         {
             this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        }
+        var nowTime = UITimer.instance.maxTime - UITimer.instance.currentTime;
+        if (nowTime>30f)
+        {
+            Destroy(gameObject);
         }
     }
 

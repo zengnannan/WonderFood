@@ -57,7 +57,6 @@ public class NewTutorial : MonoBehaviour
                   ready = true;
                 }
             }
-            
         }
     }
     void Start()
