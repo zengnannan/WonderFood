@@ -12,9 +12,16 @@ public class RotatingButton : MonoBehaviour
     public float scaleDOWNSpeed;
     private bool needGoDown;
 
+    protected bool doOnce;
+
     protected void Awake()
     {
         needGoDown = false;
+    }
+
+    protected void Start()
+    {
+        doOnce = true;
     }
     protected virtual void Update()
     {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -15635,7 +15635,7 @@ Transform:
   m_Children:
   - {fileID: 2090245405}
   m_Father: {fileID: 1273866705}
-  m_RootOrder: 304
+  m_RootOrder: 292
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &700903600
 PrefabInstance:
@@ -29369,6 +29369,7 @@ Transform:
   - {fileID: 87762971}
   - {fileID: 251530568}
   - {fileID: 1603753261}
+  - {fileID: 700526599}
   - {fileID: 1370351450}
   - {fileID: 1193898768}
   - {fileID: 1762881125}
@@ -29381,7 +29382,6 @@ Transform:
   - {fileID: 2071175058}
   - {fileID: 1183129782}
   - {fileID: 609664585}
-  - {fileID: 700526599}
   - {fileID: 443300581}
   - {fileID: 1198447581}
   - {fileID: 1493552129}
@@ -42227,6 +42227,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 646c943a199fedd438076dfce34e55ec,
         type: 3}
+    - target: {fileID: 5941444405315074897, guid: e9635922094a2e343b9239ab33109bff,
+        type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5941444405315074902, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}
       propertyPath: m_Name
@@ -48299,13 +48304,13 @@ PrefabInstance:
     - target: {fileID: 9169508638803533966, guid: ced39dab7c35985408f8bd45813ef250,
         type: 3}
       propertyPath: pools.Array.data[4].name
-      value: TomatoEnemy
+      value: TomatoEnemy1
       objectReference: {fileID: 0}
     - target: {fileID: 9169508638803533966, guid: ced39dab7c35985408f8bd45813ef250,
         type: 3}
       propertyPath: pools.Array.data[4].prefab
       value: 
-      objectReference: {fileID: 1781696469887989738, guid: 72d827eec525ea34c859f929a68b4c40,
+      objectReference: {fileID: 1781696469887989738, guid: de94268f531eaac428b1ea6b8498088f,
         type: 3}
     - target: {fileID: 9169508638803533966, guid: ced39dab7c35985408f8bd45813ef250,
         type: 3}

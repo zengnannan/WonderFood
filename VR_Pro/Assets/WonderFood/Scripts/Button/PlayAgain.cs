@@ -32,10 +32,16 @@ public class PlayAgain : RotatingButton
                 {
                     var index = SceneManager.GetActiveScene().buildIndex;
                     PlayerPrefs.SetInt("TutorialEnter", 0);
-                    if (SceneManager.GetActiveScene().name=="NewLevel6")
+                    if (SceneManager.GetActiveScene().name == "NewLevel6")
                     {
-                        PlayerPrefs.SetFloat("PlayerScore",FinalScore.lastPlayerScore);
-                        PlayerPrefs.SetFloat("SystemScore", FinalScore.lastHighestScore);
+                        if (doOnce)
+                        {
+                            doOnce = false;
+                            PlayerPrefs.SetFloat("PlayerScore", FinalScore.lastPlayerScore);
+                            PlayerPrefs.SetFloat("SystemScore", FinalScore.lastHighestScore);
+                            
+                        }
+
                     }
                     SceneManager.LoadScene(index);
                 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using DG.Tweening.Core.Easing;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -44,27 +45,27 @@ public class ScoreManager : MonoBehaviour
             }
             else if (currentScore / HighestScore > 0.7 && currentScore / HighestScore <= 0.8)
             {
-               
+                Rank[0].gameObject.SetActive(false);
                 Rank[1].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.8 && currentScore / HighestScore <= 0.9)
             {
-                
+                Rank[1].gameObject.SetActive(false);
                 Rank[2].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.9 && currentScore / HighestScore <= 0.95)
             {
-                
+                Rank[2].gameObject.SetActive(false);
                 Rank[3].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore > 0.95 && currentScore / HighestScore <1)
             {
-              
+                Rank[3].gameObject.SetActive(false);
                 Rank[4].gameObject.SetActive(true);
             }
             else if (currentScore / HighestScore == 1)
             {
-         
+                Rank[4].gameObject.SetActive(false);
                 Rank[5].gameObject.SetActive(true);
             }
 

@@ -26,8 +26,10 @@ public class FinalScore : MonoBehaviour
         doOnce = true;
         lastHighestScore = PlayerPrefs.GetFloat("SystemScore");
         lastPlayerScore = PlayerPrefs.GetFloat("PlayerScore");
-        SuccessCon = GameObject.Find("Congratulation");
+        SuccessCon = GameObject.Find("LevelScore");
 
+        Debug.Log("lastHighestScore"+lastHighestScore);
+        Debug.Log("lastPlayerScore" + lastPlayerScore);
     }
 
     // Update is called once per frame
@@ -46,6 +48,7 @@ public class FinalScore : MonoBehaviour
             currentPlayerScore = playerScore;
 
             PlayerScoreText.text = ""+(int)PlayerPrefs.GetFloat("PlayerScore");
+            doOnce = false;
         }
 
         if (currentHighestScore != 0 && UITimer.instance.currentTime <= 0 && currentPlayerScore != 0) 
