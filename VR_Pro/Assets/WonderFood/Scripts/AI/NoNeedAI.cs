@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class NoNeedAI : AIBase
 {
+    public GameObject WrongCatch;
+    public float offset;
+    private GameObject player;
     protected override void Start()
     {
         base.Start();
         aiEventArgs.wrongSFX = "MissHit";
+        player = GameObject.Find("XR Rig");
     }
 
     protected override void AutoLaunch()
@@ -46,6 +50,7 @@ public class NoNeedAI : AIBase
         {
             Debug.Log("NoNeed in Wang");
             isHit = true;
+            ShowX();
             StateFalse(aiEventArgs);
         }
 
@@ -56,4 +61,10 @@ public class NoNeedAI : AIBase
         }
     }
 
+    private void ShowX()
+    {
+        var currentPrefab = Instantiate(WrongCatch);
+        currentPrefab.transform.position = this.transform.position + new Vector3(0, offset, 0);
+        currentPrefab.gameObject.transform.forward = currentPrefab.transform.position - player.transform.position;
+    }
 }

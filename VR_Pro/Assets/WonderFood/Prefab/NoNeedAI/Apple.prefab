@@ -116,6 +116,9 @@ MonoBehaviour:
   h: 1.7
   gravity: -10
   myScore: 0
+  WrongCatch: {fileID: 1680103509565787609, guid: 7e15186a89be485449f8bcb6425bdd16,
+    type: 3}
+  offset: 0.3
 --- !u!135 &973529938546722470
 SphereCollider:
   m_ObjectHideFlags: 0
