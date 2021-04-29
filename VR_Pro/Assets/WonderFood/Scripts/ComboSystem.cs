@@ -12,14 +12,14 @@ public class ComboSystem : MonoBehaviour
     public int currentComboNum;
     [Header("MaxCombo")]
     public int MaxComboNum;
-    [HideInInspector]public float comboRatio;
+    [HideInInspector] public float comboRatio;
     public Text comboNumText;
     public Text MaxComboText;
 
     private Animator anim;
     private bool doOnce;
     [HideInInspector] public static int comboPhase;
-    
+
 
     private void Start()
     {
@@ -36,28 +36,28 @@ public class ComboSystem : MonoBehaviour
         #region ComboNum
         //ComboNum
         comboNumText.text = currentComboNum.ToString();
-        
-        if (lastComboNum == currentComboNum)
-        {
-            anim.SetBool("ComboState", false);
-        }
 
-        if (lastComboNum > currentComboNum)
-        {
-            if (doOnce)
-            {
-              anim.SetTrigger("StopCombo");
-              anim.SetBool("ComboState", false);
-            }
-
-            doOnce = false;
-        }
-
-        if (lastComboNum < currentComboNum)
-        {
-            anim.SetBool("ComboState",true);
-            doOnce = true;
-        }
+        // if (lastComboNum == currentComboNum)
+        // {
+        //     anim.SetBool("ComboState", false);
+        // }
+        //
+        // if (lastComboNum > currentComboNum)
+        // {
+        //     if (doOnce)
+        //     {
+        //         anim.SetTrigger("StopCombo");
+        //         anim.SetBool("ComboState", false);
+        //     }
+        //
+        //     doOnce = false;
+        // }
+        //
+        // if (lastComboNum < currentComboNum)
+        // {
+        //     anim.SetBool("ComboState", true);
+        //     doOnce = true;
+        // }
         #endregion
 
 
@@ -104,6 +104,7 @@ public class ComboSystem : MonoBehaviour
 
         lastComboNum = currentComboNum;
         currentComboNum++;
+        anim.SetTrigger("AddCombo");
     }
 
     public void ResetComboNum(object _sender, EventArgs _e)

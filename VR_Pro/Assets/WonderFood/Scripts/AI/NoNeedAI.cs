@@ -12,7 +12,7 @@ public class NoNeedAI : AIBase
     {
         base.Start();
         aiEventArgs.wrongSFX = "MissHit";
-        player = GameObject.Find("XR Rig");
+        player = GameObject.Find("Main Camera");
     }
 
     protected override void AutoLaunch()

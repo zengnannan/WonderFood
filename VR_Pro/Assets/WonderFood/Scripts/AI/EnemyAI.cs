@@ -10,7 +10,7 @@ public class EnemyAI : AIBase
     {
         base.Start();
         aiEventArgs.correctSFX = "HitEnemy";
-        aiEventArgs.wrongSFX = "MissHit";
+        aiEventArgs.wrongSFX = "EnemyMiss";
         Player = GameObject.Find("XR Rig");
     }
 

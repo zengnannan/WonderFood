@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -9264,7 +9264,7 @@ Transform:
   m_Children:
   - {fileID: 2067749829}
   m_Father: {fileID: 1273866705}
-  m_RootOrder: 297
+  m_RootOrder: 291
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &421418514
 GameObject:
@@ -21303,6 +21303,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 101218520247994927, guid: e67d305eebd386243a2fb722269aaf7a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb676e77b86fcfc4b9970e041bf5541c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67d305eebd386243a2fb722269aaf7a, type: 3}
 --- !u!1001 &967885920
@@ -28796,25 +28801,25 @@ Transform:
   - {fileID: 2090854103}
   - {fileID: 1515932603}
   - {fileID: 434364746}
+  - {fileID: 416416493}
   - {fileID: 1370351450}
   - {fileID: 1193898768}
   - {fileID: 1762881125}
   - {fileID: 299858309}
   - {fileID: 30576885}
   - {fileID: 181108811}
-  - {fileID: 416416493}
   - {fileID: 698186511}
   - {fileID: 1053745088}
   - {fileID: 100628990}
   - {fileID: 2071175058}
   - {fileID: 1183129782}
   - {fileID: 609664585}
+  - {fileID: 2068826975}
   - {fileID: 443300581}
   - {fileID: 1198447581}
   - {fileID: 1493552129}
   - {fileID: 1968648885}
   - {fileID: 648729579}
-  - {fileID: 2068826975}
   - {fileID: 1171081887}
   - {fileID: 1513995554}
   - {fileID: 1987728910}
@@ -46984,7 +46989,7 @@ Transform:
   m_Children:
   - {fileID: 2090245405}
   m_Father: {fileID: 1273866705}
-  m_RootOrder: 309
+  m_RootOrder: 304
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2071175057
 PrefabInstance:

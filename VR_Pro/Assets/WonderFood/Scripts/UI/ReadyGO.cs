@@ -6,14 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class ReadyGO : MonoBehaviour
 {
-    [SerializeField] private Text ReadyGoText;
     private Animator anim;
     public static ReadyGO instance;
     void Awake()
     {
         instance = this;
         anim = GetComponent<Animator>();
-        gameObject.GetComponent<Text>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
     }
 
     void Start()
@@ -26,14 +25,10 @@ public class ReadyGO : MonoBehaviour
 
     public void StartButton()
     {
-        gameObject.GetComponent<Text>().enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
         anim.SetTrigger("Ready");
     }
-    void StartGo()
-    {
-        ReadyGoText.text = "Go";
-        ReadyGoText.color = Color.green;
-    }
+ 
 
     void GameTimeStart()
     {

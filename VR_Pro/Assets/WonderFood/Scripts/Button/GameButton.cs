@@ -14,12 +14,24 @@ public class GameButton : MonoBehaviour
     private bool doOnce;
     private bool doOnce1;
 
+    private GameObject arrow;
+
     private void Awake()
     {
         doOnce = false;
         doOnce1 = false;
         highest = transform.position;
         lowest = transform.position - new Vector3(0f, fallDownDistance, 0f);
+        arrow = GameObject.Find("Arrow");
+        
+    }
+
+    void Start()
+    {
+        if(PlayerPrefs.GetInt("TutorialEnter") == 1)
+        {
+            arrow.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -27,12 +39,13 @@ public class GameButton : MonoBehaviour
         if (doOnce1 == false)
         {
             doOnce1 = true;
-           SoundManager.instance.PlaySound("叮 铃声"); 
+            SoundManager.instance.PlaySound("叮 铃声");
         }
-        
+
     }
     private void OnTriggerStay(Collider collider)
-    {Debug.Log("I'm in Button");
+    {
+        Debug.Log("I'm in Button");
         if (!collider.CompareTag("Button"))
         {
             Debug.Log(collider.name);
@@ -47,14 +60,15 @@ public class GameButton : MonoBehaviour
             transform.DOMove(highest, ClickDuration);
             if (collider.GetComponent<WangZi>() != null || collider.GetComponent<Pan>() != null)
             {
-                if (!UITimer.instance.GameStart&&PlayerPrefs.GetInt("TutorialEnter")!=1)
+                arrow.SetActive(false);
+                if (!UITimer.instance.GameStart && PlayerPrefs.GetInt("TutorialEnter") != 1)
                 {
                     if (doOnce == false)
                     {
                         doOnce = true;
                         ReadyGO.instance.StartButton();
                     }
-                    
+
                 }
             }
         }

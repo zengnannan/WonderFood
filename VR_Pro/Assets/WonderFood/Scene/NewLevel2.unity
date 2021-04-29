@@ -19972,6 +19972,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGM
       objectReference: {fileID: 0}
+    - target: {fileID: 101218520247994927, guid: e67d305eebd386243a2fb722269aaf7a,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: eb676e77b86fcfc4b9970e041bf5541c, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e67d305eebd386243a2fb722269aaf7a, type: 3}
 --- !u!1001 &967885920
@@ -39029,7 +39034,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a57abec3221d9eb44b2475f73b62cdf2, type: 2}
+      objectReference: {fileID: 2100000, guid: 37cf3b40bec41f5409e3a336cfbd2fe1, type: 2}
     - target: {fileID: 5068521979364677291, guid: e9635922094a2e343b9239ab33109bff,
         type: 3}
       propertyPath: m_IsActive

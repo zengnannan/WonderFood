@@ -19,6 +19,8 @@ public class UIManager : MonoBehaviour
 
     private bool doOnce;
 
+    private GameObject BGM;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -34,6 +36,11 @@ public class UIManager : MonoBehaviour
         }
 
         doOnce = false;
+
+        
+        BGM = GameObject.Find("BGM");
+        
+
     }
 
     // Update is called once per frame
@@ -45,14 +52,20 @@ public class UIManager : MonoBehaviour
             doOnce = true;
             //BoardGoingDown
             endBoard.GoingDown();
-            
+
+            if (BGM != null)
+            {
+                BGM.SetActive(false);
+            }
+
+
             //see how many object players finished
             for (int i = 0; i < uiobjectnum.ObjectName.Length; i++)
             {
-           
+
                 if (uiobjectnum.currentObjectNum[i] <= 0)
                 {
-              
+
                     completeNum++;
                 }
             }
